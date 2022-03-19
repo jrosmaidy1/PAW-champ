@@ -1,4 +1,4 @@
-/* common styles */
+ /* common styles */
 body {
     background: #FFFBF2;
 }
@@ -17,6 +17,8 @@ h1 {
     display: flex;
     justify-items: center;
     justify-content: space-between;
+    padding-left: 1em;
+    padding-right: 0.5em;
 }
 
 .navbar-brand {
@@ -24,7 +26,7 @@ h1 {
     text-decoration: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 77px;
+    font-size: 62px;
     line-height: 96px;
     display: flex;
     align-items: center;
@@ -35,3 +37,83 @@ h1 {
     text-shadow: -3px 5px 5px rgba(91, 67, 49, 0.5);
 }
 
+.nav-item {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+
+    color: #6C6C6C;
+
+    text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
+    align-items: center;
+    padding: .5em;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.3em;
+}
+
+.navbar-nav {
+    vertical-align: center;
+    display: flex;
+    list-style: none;
+    justify-items: center;
+    justify-content: space-evenly;
+    padding-top: 0.5em;
+    padding-right: 2em;
+}
+
+.active {
+    color: #F19191;
+}
+
+/* landingPage styling */
+.intro {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    padding-top: 3em;
+
+    /* centerring vertically */
+    margin: 0;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.intro-text {
+    font-family: 'Dokdo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    text-align: center;
+
+    color: #6C6C6C;
+    text-shadow: 0px 4px 8px rgba(91, 67, 49, 0.4);
+    margin-block: .2em;
+}
+
+.button-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    align-self: center;
+    justify-content: center;
+}
+
+.button-link {
+    text-decoration: none;
+    background: #FFE7E7;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 35px;
+    font-size: 23px;
+}
