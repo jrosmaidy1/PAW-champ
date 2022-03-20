@@ -1,6 +1,6 @@
 # Cat-astrophe!
 
-**Deployment:** Try it [here](https://cat-astrophe-344709.ue.r.appspot.com/landingPage)
+**Deployment:** Check it out [here](http://www.cat-astrophe.tech/)!
 
 ## Introduction
 ### Sign up with your phone number to receive random cat fact and an image from a bot.
@@ -27,4 +27,4 @@ gunicorn==19.3.0
 python-dotenv==0.19.1
 ```
 ## To run the app
-You can start the project by executing ```python app.py``` or ```python3 app.py```command
+You can start the project by executing ```python app.py``` or ```python3 app.py``` command.
