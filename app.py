@@ -1,5 +1,4 @@
 import os
-import secrets
 import requests
 import random
 import json
@@ -19,7 +18,7 @@ res = requests.get(caturl, headers=headers, data=data)
 r = res.json()
 
 images = r[0]["url"]
-
+print(r)
 
 @app.route("/")
 def main():
