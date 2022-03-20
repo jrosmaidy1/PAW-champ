@@ -11,27 +11,33 @@ account_sid = os.getenv("SID")
 auth_token = os.getenv("TOKEN")
 client = Client(account_sid, auth_token)
 
-caturl = "https://api.thecatapi.com/v1/images/search?format=json"
+catUrl = "https://api.thecatapi.com/v1/images/search?format=json"
+factUrl = "https://catfact.ninja/fact?max_length=140"
 
-data = {}
-headers = {"Content-Type": "application/json", "x-api-key": os.getenv("KEY")}
+catData = {}
+catHeaders = {"Content-Type": "application/json", "x-api-key": os.getenv("KEY")}
+factData = {}
+factHeaders = {"Accept": "application/json"}
 
-res = requests.get(caturl, headers=headers, data=data)
 
-r = res.json()
+catRes = requests.get(catUrl, headers=catHeaders, data=catData)
+factRes = requests.get(factUrl, headers=factHeaders, data=factData)
 
-images = r[0]["url"]
+catR = catRes.json()
+factR = factRes.json()
 
-# message = client.messages.create(
-#     from_="+13185943649",
-#     messaging_service_sid=os.getenv("MID"),
-#     body="You have been catastrophe'd'",
-#     media_url=images,
-#     to="+XXXXXXXXXX",
-# )
+images = catR[0]["url"]
+fact = factR["fact"]
 
-# print(message.sid)
+message = client.messages.create(
+    from_="+13185943649",
+    messaging_service_sid=os.getenv("MID"),
+    body="\n***CAT fact of the day!" + "\U0001F638" + "***\n" + fact,
+    media_url=images,
+    to="+14703549666",
+)
 
+print(message.sid)
 
 @app.route("/")
 def main():
