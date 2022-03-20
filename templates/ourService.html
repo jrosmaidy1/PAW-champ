@@ -36,7 +36,7 @@
     {% if messages %}
     <ul class="flashes">
       {% for message in messages %}
-      <li class="form-label">{{ message }}</li>
+      <li class="flashes-item">{{ message }}</li>
       {% endfor %}
     </ul>
     {% endif %}
@@ -57,7 +57,7 @@
         Enter your phone number below <br>
         to start receiving facts:
       </label><br>
-      <input name="phoneNumber" type="text" class="form-box" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
+      <input name="phoneNumber" type="text" class="form-box" id="phoneNumber" placeholder="XXXXXXXXXX" required><br>
       <div>
         <input type="submit" value="Submit">
       </div>

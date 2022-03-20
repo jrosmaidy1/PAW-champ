@@ -190,6 +190,7 @@ section {
 }
 
 .form-label {
+    font-family: 'Londrina Solid';
     color: #000000;
     text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
 }
@@ -214,8 +215,16 @@ input[type=submit] {
 }
 
 .flashes {
-    font-size: 5vw;
+    font-size: 3vw;
     list-style: none;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flashes-item {
+    font-family: 'Londrina Solid';
+    color: red;
+    text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
     align-items: center;
 }
