@@ -10,7 +10,7 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Karla:wght@300&family=Londrina+Solid:wght@300&family=Playfair+Display:wght@400;600&display=swap');
-  </style>
+    </style>
   <link href="../static/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -19,7 +19,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="{{url_for('landingPage')}}">CAT-ASTROPHE</a>
-
+  
       <div>
         <!-- UN-COMMENT THIS SECTION IF U'RE JASON/ZI -->
         <!-- <ul class="navbar-nav">
@@ -34,7 +34,7 @@
           </li>
         </ul> -->
         <!-- TIL HERE -->
-
+        
 
         <!-- UN-COMMENT THIS SECTION IF U'RE CHLOE/RANDY -->
         <ul class="navbar-nav">
@@ -54,22 +54,21 @@
       </div>
     </nav>
   </header>
-
+  
   <div class="intro-items">
 
   </div>
 
 
   <div class="form-items">
-    <form method="POST" action="/ourService">
+    <form>
       <label class="form-label" for="phoneNumber">
         Despite the shady encounter, <br>
         You have chosen to experience the Cat Raid anyway.<br>
         Enter your phone number below <br>
         to start receiving facts:
       </label><br>
-      <input name="phoneNumber" type="text" class="form-box" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
-      <input type="submit" value="Submit">
+      <input type="text" class="form-box" id="phoneNumber" placeholder="+1-XXX-XXXX"><br>
     </form>
 
     <div>
@@ -79,7 +78,7 @@
     </div>
 
   </div>
-
+  
   <square class="footer footer-bg">
   </square>
 
