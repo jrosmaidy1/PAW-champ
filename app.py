@@ -34,7 +34,6 @@ factRes = requests.get(factUrl, headers=factHeaders, data=factData)
 catR = catRes.json()
 factR = factRes.json()
 
-
 # catAPI for image
 images = catR[0]["url"]
 # catFactAPI for fact

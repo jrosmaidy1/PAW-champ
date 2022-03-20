@@ -1,28 +1,42 @@
  /* common styles */
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #FFFBF2;
     background-image: url(../static/bg-nocat.png);
     background-size: 100% auto;
+    background-repeat: no-repeat;
+}
+
+section {
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    text-align: center;
+    background-image: url(../static/bg-cat.png);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
 }
 
 h1 {
-    font-family: 'Dokdo';
+    font-family: 'Londrina Solid';
     font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
+    font-size: 3vw;
     text-align: center;
     align-self: center;
 
-    color: #6C6C6C;
-    text-shadow: -3px 5px 5px rgba(91, 67, 49, 0.5);
+    color: #000000;
+    text-shadow: -3vw 5vw 5vw rgba(91, 67, 49, 0.5);
 }
 
-h2, p {
+h2 {
+    font-family: 'Londrina Solid';
+    font-size: 2.5vw;
     font-weight: 400;
-    font-size: 25px;
-    align-self: center;
+    text-align: center;
 
-    color: #6C6C6C;
+    color: #000000;
     text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
 }
 
@@ -37,6 +51,7 @@ h2, p {
     justify-content: space-between;
     padding-left: 1em;
     padding-right: 0.5em;
+    position: sticky;
 }
 
 .navbar-brand {
@@ -44,26 +59,26 @@ h2, p {
     text-decoration: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 62px;
-    line-height: 96px;
+    font-size: 7vw;
     display: flex;
     align-items: center;
     text-align: center;
 
-    color:#6C6C6C;
+    color: #FFFBF2;
+    text-shadow: -5px 5px 4px rgba(235, 179, 82, 0.38);
 
-    text-shadow: -3px 5px 5px rgba(91, 67, 49, 0.5);
 }
 
 .nav-item {
     font-family: 'Playfair Display';
     font-style: normal;
     font-weight: 600;
-    font-size: 20px;
+    font-size: 2vw;
 
-    color: #6C6C6C;
+    color: #FFFBF2;
 
-    text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
+    text-shadow: -1px 3px 4px rgba(235, 179, 82, 0.38);
+
     align-items: center;
     padding: .5em;
 }
@@ -75,7 +90,6 @@ h2, p {
 }
 
 .navbar-nav {
-    vertical-align: center;
     display: flex;
     list-style: none;
     justify-items: center;
@@ -85,48 +99,19 @@ h2, p {
 }
 
 .active {
-    color: #F19191;
+    color: #EC967D;
 }
 
 /* landingPage styling */
-.homePage {
-    background: #FFFBF2;
-    background-image: url(../static/bg-cat.png);
-    background-size: 100% auto;
-}
-
-.intro {
-    display: block;
-    align-items: center;
-    justify-content: center;
-    justify-items: center;
-    padding-top: 3em;
-
-    /* centerring vertically */
-    margin: 0;
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-}
-
 .intro-text {
-    font-family: 'Dokdo';
+    font-family: 'Londrina Solid';
     font-style: normal;
     font-weight: 400;
-    font-size: 40px;
+    font-size: 3vw;
     text-align: center;
 
-    color: #6C6C6C;
+    color: #000000;
     text-shadow: 0px 4px 8px rgba(91, 67, 49, 0.4);
-    margin-block: .2em;
-}
-
-.button-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 button {
@@ -134,12 +119,15 @@ button {
     justify-content: center;
 }
 
-.button-link {
+.next-button {
     text-decoration: none;
-    background: #FFE7E7;
+    color: inherit;
+    font-family: 'Londrina Solid';
+    align-self: center;
+    background: rgba(241, 225, 166, 0.8);
+    border-radius: 30px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 35px;
-    font-size: 23px;
+    font-size: 1.5vw;
 }
 
 /* about page styling */
@@ -153,15 +141,17 @@ button {
     display: block;
     list-style: none;
     align-items: center;
-    justify-content: center;
-    justify-items: center;
+    justify-content:start;
+    justify-items: left;
+    margin: 0;
 }
 
 .members-item {
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 1.5vw;
+    font-weight: 300;
+    text-align: center;
 
-    color: #6C6C6C;
+    color: #000000;
 
     text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
     align-items: center;
@@ -170,28 +160,55 @@ button {
 .members-link {
     text-decoration: none;
     color: inherit;
-    padding: 0.3em;
     text-align: center;
 }
 
 /* signup page styling */
 .form-items {
-    display: table-cell;
+    font-family: 'Londrina Solid';
+    font-size: 2vw;
+    font-weight: 400;
     text-align: center;
+
+    align-items: center;
+    position: absolute;
     left: 50%;
     top: 50%;
-    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    padding: 0.5em;
+    padding: 0.2em;
 }
 
 .form-box {
-    margin-top: 2em;
-    background: rgba(241, 145, 145, 0.44);
-    width: 500px;
-    height: 50px;
+    text-align: center;
+    margin: 1em;
+    background: #F3E4B2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 56px;
+    width: 30vw;
+    height: 4vw;
 }
 
 .form-label {
-    font-size: 30px;
+    color: #000000;
+    text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
+}
+
+.submit-button {
+    background: rgba(241, 225, 166, 0.8);
+    border-radius: 20px;
+    font-size: 1.5vw;
+}
+
+/* footer styling */
+.footer-bg {
+    background: #381F16;
+}
+
+.footer {
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
 }
