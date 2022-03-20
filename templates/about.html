@@ -9,50 +9,73 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Playfair+Display:wght@400;600&display=swap');
-  </style>
+    @import url('https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Karla:wght@300&family=Londrina+Solid:wght@300&family=Playfair+Display:wght@400;600&display=swap');
+    </style>
   <link href="../static/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <!-- navbar in every page -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{url_for('landingPage')}}">CAT-ASTROPHE</a>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{url_for('landingPage')}}">CAT-ASTROPHE</a>
+  
+      <div>
+        <!-- UN-COMMENT THIS SECTION IF U'RE JASON/ZI -->
+        <!-- <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('landingPage')}}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('ourService')}}">Our Service</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="{{url_for('about')}}">About</a>
+          </li>
+        </ul> -->
+        <!-- TIL HERE -->
 
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{url_for('landingPage')}}">Home <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('ourService')}}">Our Service</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('about')}}">About</a>
-        </li>
-      </ul>
-    </div>
-  </nav>
 
-  <div class>
-    <img src={{images}}>
-  </div>
+        <!-- UN-COMMENT THIS SECTION IF U'RE CHLOE/RANDY -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="landingPage.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ourService.html">Our Service</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+        <!-- TIL HERE -->
+
+      </div>
+    </nav>
+  </header>
 
   <div class="members">
-    <h1>description here!</h1>
+    <h2> 
+      this page was inspired by our love for cats. <br>
+      our page was constructed with html/css on the front-end <br>
+      and python for the back-end. <br>
+      we also integrated multiple apis <br>
+      – twilio's automated messenger api and cat fact api. <br>
+      
+    </h2>
     <ul class="members-list">
-      <li class="members-item">
-        <h2>zi yon</h2>
-      </li>
-      <li class="members-item">
-        <a class="members-link" href="https://github.com/kayyon"> github.com/kayyon </a>
-      </li>
-
       <li class="members-item">
         <h2>jason rosmaidy</h2>
       </li>
       <li class="members-item">
         <a class="members-link" href="https://github.com/jrosmaidy1"> github.com/jrosmaidy1 </a>
+      </li>
+      
+      <li class="members-item">
+        <h2>zi yon</h2>
+      </li>
+      <li class="members-item">
+        <a class="members-link" href="https://github.com/kayyon"> github.com/kayyon </a>
       </li>
 
       <li class="members-item">
@@ -73,6 +96,9 @@
 
   </div>
 
-  <div class="" </body>
+  <square class="footer footer-bg">
+  </square>
+  
+</body>
 
 </html>
