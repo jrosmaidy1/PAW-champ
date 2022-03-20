@@ -1,13 +1,15 @@
 import os
-import secrets
 import requests
-import random
-import json
+from twilio.rest import Client
 import flask
-from flask import render_template
 from dotenv import load_dotenv, find_dotenv
 
+load_dotenv(find_dotenv())
 app = flask.Flask(__name__)
+
+account_sid = os.getenv("SID")
+auth_token = os.getenv("TOKEN")
+client = Client(account_sid, auth_token)
 
 caturl = "https://api.thecatapi.com/v1/images/search?format=json"
 
@@ -19,6 +21,16 @@ res = requests.get(caturl, headers=headers, data=data)
 r = res.json()
 
 images = r[0]["url"]
+
+message = client.messages.create(
+    from_="+13185943649",
+    messaging_service_sid="MG9e737351d0b58872ead1024cd40de0f9",
+    body="You have been catastrophe'd'",
+    media_url=images,
+    to="+XXXXXXXXXX",
+)
+
+print(message.sid)
 
 
 @app.route("/")
