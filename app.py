@@ -51,13 +51,13 @@ def create_message(phoneNumber):
     print(message.sid)
 
 
-# def replacement(phoneNumber):
-#     phoneNumber = phoneNumber.replace(" ", "")
-#     phoneNumber = phoneNumber.replace("-", "")
-#     phoneNumber = phoneNumber.replace("(", "")
-#     phoneNumber = phoneNumber.replace(")", "")
+def replacement(phoneNumber):
+    phoneNumber = phoneNumber.replace(" ", "")
+    phoneNumber = phoneNumber.replace("-", "")
+    phoneNumber = phoneNumber.replace("(", "")
+    phoneNumber = phoneNumber.replace(")", "")
 
-#     return phoneNumber
+    return phoneNumber
 
 
 @app.route("/")
@@ -79,7 +79,7 @@ def about():
 def ourService():
     if request.method == "POST":
         phoneNumber = request.form.get("phoneNumber")
-        # replacement(phoneNumber)
+        replacement(phoneNumber)
         create_message(phoneNumber)
     return flask.render_template("ourService.html")
 
