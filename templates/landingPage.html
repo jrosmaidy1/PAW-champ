@@ -10,31 +10,31 @@
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Karla:wght@300&family=Londrina+Solid:wght@300&family=Playfair+Display:wght@400;600&display=swap');
-    </style>
+  </style>
   <link href="../static/style.css?version=51" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <!-- navbar in every page -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="{{url_for('landingPage')}}">CAT-ASTROPHE</a>
     <div>
       <!-- UN-COMMENT THIS SECTION IF U'RE JASON/ZI -->
-      <!-- <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" href="{{url_for('landingPage')}}">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('ourService')}}">Our Service</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('about')}}">About</a>
-          </li>
-        </ul> -->
-        <!-- TIL HERE -->
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{url_for('landingPage')}}">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('ourService')}}">Our Service</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('about')}}">About</a>
+        </li>
+      </ul>
+      <!-- TIL HERE -->
 
-        <!-- UN-COMMENT THIS SECTION IF U'RE CHLOE/RANDY -->
-        <ul class="navbar-nav">
+      <!-- UN-COMMENT THIS SECTION IF U'RE CHLOE/RANDY -->
+      <!-- <ul class="navbar-nav">
           <li class="nav-item active">
             <a class="nav-link" href="landingPage.html">Home <span class="sr-only">(current)</span></a>
           </li>
@@ -44,20 +44,20 @@
           <li class="nav-item">
             <a class="nav-link" href="about.html">About</a>
           </li>
-        </ul>
-        <!-- TIL HERE -->
-      
+        </ul> -->
+      <!-- TIL HERE -->
+
     </div>
   </nav>
-  
+
 
   <section id="section1">
     <p class="intro-text">
       Love Cats? <br>
-      You've come to the right place! <br> 
-        
-      <a class="next-button" href="#section2"> Tell me more! </a> 
-    </p>  
+      You've come to the right place! <br>
+
+      <a class="next-button" href="#section2"> Tell me more! </a>
+    </p>
   </section>
 
   <section id="section2">
@@ -68,81 +68,81 @@
       Still interested? <br>
 
       <a class="next-button" href="#section3"> Yes </a> <br>
-      <a class="next-button" href="#bye"> No </a> 
+      <a class="next-button" href="#bye"> No </a>
     </p>
-  </section>  
+  </section>
 
   <section id="section3">
-    <p class="intro-text"> 
+    <p class="intro-text">
       Ooh! Here's one: <br>
-     Did you know that cats <br>
-     spend 70% of their lives <br>
-     sleeping? <br>
-    
-     <a class="next-button" href="#section4"> Yeah I knew that. </a> <br>
-    
+      Did you know that cats <br>
+      spend 70% of their lives <br>
+      sleeping? <br>
+
+      <a class="next-button" href="#section4"> Yeah I knew that. </a> <br>
+
     </p>
-    </section>
-  
+  </section>
+
   <section id="section4">
-    <p class="intro-text"> 
+    <p class="intro-text">
       Oh, sure you do. <br>
       Well then, did you know that <br>
       cats are typically left-handed? <br>
-    
+
       <a class="next-button" href="#section5"> No... </a> <br>
-    
+
     </p>
   </section>
 
   <section id="section5">
-    <p class="intro-text"> 
+    <p class="intro-text">
       Ha! <br>
       See, Cat-astrophe is the real deal! <br>
       The offer of daily cat facts is still up, <br>
       Still interested? <br>
-    
+
       <a class="next-button" href="#section6"> Yes I'm sold! </a> <br>
       <a class="next-button" href="#bye"> No, this is kinda shady. </a>
-    
+
     </p>
   </section>
-      
+
   <section id="section6">
-    <p class="intro-text"> 
+    <p class="intro-text">
       Sit tight and <br>
       buckle up for the <br>
       catastrophe of cats! <br>
 
-      <a class="next-button" href="ourService.html"> Woohoo! </a>
-      
+      <a class="next-button" href="{{url_for('ourService')}}"> Woohoo! </a>
+      <!-- FOR JASON/ZI {{url_for('ourService')}} -->
     </p>
   </section>
 
   <section id="bye">
-    <p class="intro-text"> 
+    <p class="intro-text">
       Oh, too bad. <br>
       I'll give you a another chance <br>
       if you change your mind. <br>
 
       <a class="next-button" href="#section2"> Talk to them again. </a>
-      
+
     </p>
   </section>
 
   <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript" >
-      $(document).on('click', 'a[href^="#"]', function (event) {
-        event.preventDefault();
-    
-        $('html, body').animate({
-            scrollTop: $($.attr(this, 'href')).offset().top
-        }, 500);
-      });
-    </script>
+  <script type="text/javascript">
+    $(document).on('click', 'a[href^="#"]', function (event) {
+      event.preventDefault();
 
-  <!-- <square class="footer footer-bg">
-  </square> -->
+      $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+      }, 500);
+    });
+  </script>
+
+  <square class="footer footer-bg">
+  </square>
 
 </body>
 
