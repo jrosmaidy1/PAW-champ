@@ -212,3 +212,10 @@ input[type=submit] {
     width: 100%;
     height: 10vh;
 }
+
+.flashes {
+    font-size: 5vw;
+    list-style: none;
+    text-align: center;
+    align-items: center;
+}

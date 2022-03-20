@@ -19,7 +19,7 @@ client = Client(account_sid, auth_token)
 # catAPI
 catUrl = "https://api.thecatapi.com/v1/images/search?format=json"
 # catFactAPI
-factUrl = "https://catfact.ninja/fact?max_length=140"
+factUrl = "https://catfact.ninja/fact?max_length=100"
 
 # catAPI credential
 catData = {}
