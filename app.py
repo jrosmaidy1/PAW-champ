@@ -22,15 +22,15 @@ r = res.json()
 
 images = r[0]["url"]
 
-message = client.messages.create(
-    from_="+13185943649",
-    messaging_service_sid=os.getenv("MID"),
-    body="You have been catastrophe'd'",
-    media_url=images,
-    to="+XXXXXXXXXX",
-)
+# message = client.messages.create(
+#     from_="+13185943649",
+#     messaging_service_sid=os.getenv("MID"),
+#     body="You have been catastrophe'd'",
+#     media_url=images,
+#     to="+XXXXXXXXXX",
+# )
 
-print(message.sid)
+# print(message.sid)
 
 
 @app.route("/")

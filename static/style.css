@@ -1,7 +1,7 @@
  /* common styles */
 body {
     background: #FFFBF2;
-    background-image: url(../media/bg-nocat.png);
+    background-image: url(../static/bg-nocat.png);
     background-size: 100% auto;
 }
 
@@ -91,7 +91,7 @@ h2, p {
 /* landingPage styling */
 .homePage {
     background: #FFFBF2;
-    background-image: url(../media/bg-cat.png);
+    background-image: url(../static/bg-cat.png);
     background-size: 100% auto;
 }
 
