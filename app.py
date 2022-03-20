@@ -39,7 +39,6 @@ message = client.messages.create(
 
 print(message.sid)
 
-
 @app.route("/")
 def main():
     return flask.render_template("landingPage.html", images=images)
