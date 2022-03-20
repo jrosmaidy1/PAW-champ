@@ -2,13 +2,9 @@ import os
 import requests
 from twilio.rest import Client
 import flask
-
-from flask import request
-
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
-
 app = flask.Flask(__name__)
 
 # twilio credential
@@ -38,18 +34,16 @@ factR = factRes.json()
 images = catR[0]["url"]
 # catFactAPI for fact
 fact = factR["fact"]
-
 # use twilio to send messages
-def create_message(phoneNumber):
-    message = client.messages.create(
-        from_="+13185943649",
-        messaging_service_sid=os.getenv("MID"),
-        body="\n***CAT fact of the day!" + "\U0001F638" + "***\n" + fact,
-        media_url=images,
-        to="+1" + phoneNumber,
-    )
+message = client.messages.create(
+    from_="+13185943649",
+    messaging_service_sid=os.getenv("MID"),
+    body="\n***CAT fact of the day!" + "\U0001F638" + "***\n" + fact,
+    media_url=images,
+    to="+1" + os.getenv("Phone"),
+)
 
-    print(message.sid)
+print(message.sid)
 
 
 @app.route("/")
@@ -67,12 +61,11 @@ def about():
     return flask.render_template("about.html")
 
 
-@app.route("/ourService", methods=["GET", "POST"])
+@app.route("/ourService")
 def ourService():
-    if request.method == "POST":
-        phoneNumber = request.form.get("phoneNumber")
-        create_message(phoneNumber)
     return flask.render_template("ourService.html")
 
 
-app.run(host="127.0.0.1", port=5000, debug=True)
+app.run(
+    debug=True,
+)
