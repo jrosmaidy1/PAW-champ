@@ -24,7 +24,7 @@ images = r[0]["url"]
 
 message = client.messages.create(
     from_="+13185943649",
-    messaging_service_sid="MG9e737351d0b58872ead1024cd40de0f9",
+    messaging_service_sid=os.getenv("MID"),
     body="You have been catastrophe'd'",
     media_url=images,
     to="+XXXXXXXXXX",
@@ -38,8 +38,21 @@ def main():
     return flask.render_template("landingPage.html", images=images)
 
 
+@app.route("/landingPage")
+def landingPage():
+    return flask.render_template("landingPage.html")
+
+
+@app.route("/about")
+def about():
+    return flask.render_template("about.html")
+
+
+@app.route("/ourService")
+def ourService():
+    return flask.render_template("ourService.html")
+
+
 app.run(
-    host="localhost",
-    port="8081",
     debug=True,
 )
