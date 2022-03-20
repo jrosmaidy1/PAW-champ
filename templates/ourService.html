@@ -35,12 +35,13 @@
   </nav>
 
   <div class="form-items">
-    <form>
+    <form method="POST" action="/ourService">
       <label class="form-label" for="phoneNumber">
-        You have enterred the cat raid.<br>
+        You have entered the cat raid.<br>
         Enter your phone number below:
       </label><br>
-      <input type="text" class="form-box" id="phoneNumber" placeholder="+1-XXX-XXXX"><br>
+      <input name="phoneNumber" type="text" class="form-box" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
+      <input type="submit" value="Submit">
     </form>
   </div>
 
