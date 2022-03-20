@@ -38,8 +38,21 @@ def main():
     return flask.render_template("landingPage.html", images=images)
 
 
+@app.route("/landingPage")
+def landingPage():
+    return flask.render_template("landingPage.html")
+
+
+@app.route("/about")
+def about():
+    return flask.render_template("about.html")
+
+
+@app.route("/ourService")
+def ourService():
+    return flask.render_template("ourService.html")
+
+
 app.run(
-    host="localhost",
-    port="8081",
     debug=True,
 )
