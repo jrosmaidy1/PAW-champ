@@ -3,13 +3,14 @@ import requests
 from twilio.rest import Client
 import flask
 
-from flask import request
+from flask import request, flash
 
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
 app = flask.Flask(__name__)
+app.secret_key = os.getenv("KEY")
 # twilio credential
 account_sid = os.getenv("SID")
 auth_token = os.getenv("TOKEN")
@@ -81,6 +82,7 @@ def ourService():
         phoneNumber = request.form.get("phoneNumber")
         replacement(phoneNumber)
         create_message(phoneNumber)
+        flash("You have inputted a phone number!")
     return flask.render_template("ourService.html")
 
 
