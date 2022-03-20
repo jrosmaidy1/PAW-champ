@@ -40,7 +40,7 @@ message = client.messages.create(
     messaging_service_sid=os.getenv("MID"),
     body="\n***CAT fact of the day!" + "\U0001F638" + "***\n" + fact,
     media_url=images,
-    to="+1xxxxxxxxxx",
+    to="+1" + os.getenv("Phone"),
 )
 
 print(message.sid)
