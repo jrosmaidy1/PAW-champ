@@ -24,7 +24,7 @@ images = r[0]["url"]
 
 message = client.messages.create(
     from_="+13185943649",
-    messaging_service_sid="MG9e737351d0b58872ead1024cd40de0f9",
+    messaging_service_sid=os.getenv("MID"),
     body="You have been catastrophe'd'",
     media_url=images,
     to="+XXXXXXXXXX",

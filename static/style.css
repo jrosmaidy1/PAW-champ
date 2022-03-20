@@ -1,16 +1,34 @@
  /* common styles */
 body {
     background: #FFFBF2;
+    background-image: url(../media/bg-nocat.png);
+    background-size: 100% auto;
 }
 
 h1 {
-    font-family: 'East Sea Dokdo', cursive;
+    font-family: 'Dokdo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 50px;
+    text-align: center;
+    align-self: center;
+
+    color: #6C6C6C;
+    text-shadow: -3px 5px 5px rgba(91, 67, 49, 0.5);
 }
 
+h2, p {
+    font-weight: 400;
+    font-size: 25px;
+    align-self: center;
+
+    color: #6C6C6C;
+    text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
+}
 
 /* navbar styling */
 .bg-light {
-    background-color: #FFE7E7;
+    background-color: #381F16;
 }
 
 .navbar {
@@ -32,7 +50,7 @@ h1 {
     align-items: center;
     text-align: center;
 
-    color: #6C6C6C;
+    color:#6C6C6C;
 
     text-shadow: -3px 5px 5px rgba(91, 67, 49, 0.5);
 }
@@ -40,7 +58,7 @@ h1 {
 .nav-item {
     font-family: 'Playfair Display';
     font-style: normal;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 20px;
 
     color: #6C6C6C;
@@ -71,6 +89,12 @@ h1 {
 }
 
 /* landingPage styling */
+.homePage {
+    background: #FFFBF2;
+    background-image: url(../media/bg-cat.png);
+    background-size: 100% auto;
+}
+
 .intro {
     display: block;
     align-items: center;
@@ -116,4 +140,58 @@ button {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 35px;
     font-size: 23px;
+}
+
+/* about page styling */
+.members {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.members-list {
+    display: block;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.members-item {
+    font-size: 20px;
+    font-weight: 600;
+
+    color: #6C6C6C;
+
+    text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
+    align-items: center;
+}
+
+.members-link {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.3em;
+    text-align: center;
+}
+
+/* signup page styling */
+.form-items {
+    display: table-cell;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 0.5em;
+}
+
+.form-box {
+    margin-top: 2em;
+    background: rgba(241, 145, 145, 0.44);
+    width: 500px;
+    height: 50px;
+}
+
+.form-label {
+    font-size: 30px;
 }
