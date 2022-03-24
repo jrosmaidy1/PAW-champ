@@ -17,7 +17,8 @@ To run the project clone it into local directory create a ```.env``` file contai
 - TOKEN =  Get TOKEN by signing up with [Twilio](https://console.twilio.com/)
 - MID = Get MID by signing up with [Twilio](https://console.twilio.com/)
 
-Install all the requirements from ```requirements.txt```
+Install all the requirements 
+```pip install -r requirements.txt``` or  ```pip3 install -r requirements.txt```
 ```bash
 Flask==2.0.2
 Jinja2==3.0.2
