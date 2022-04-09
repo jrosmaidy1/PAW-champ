@@ -177,6 +177,7 @@ section {
 }
 
 .form-label {
+    font-family: 'Londrina Solid';
     color: #000000;
     text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
 }
@@ -200,11 +201,4 @@ input[type=submit] {
 
 .footer-items {
     text-align: center;
-}
-
-.flashes {
-    font-size: 5vw;
-    list-style: none;
-    text-align: center;
-    align-items: center;
 }
