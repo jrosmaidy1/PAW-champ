@@ -58,4 +58,22 @@ def main():
     return flask.render_template("index.html")
 
 
+@app.route("/dog", methods=["GET", "POST"])
+def dog():
+    if request.method == "POST":
+        dogUrl = "https://dog.ceo/api/breeds/image/random"
+        factUrl = "https://dog-api.kinduff.com/api/facts"
+        factData = {}
+        factHeaders = {"Accept": "application/json"}
+        dogData = {}
+        dogHeaders = {"Accept": "application/json"}
+        factRes = requests.get(factUrl, headers=factHeaders, data=factData)
+        factR = factRes.json()
+        fact = factR["facts"]
+        dogRes = requests.get(dogUrl, headers=dogHeaders, data=dogData)
+        dogR = dogRes.json()
+        dog = dogR["message"]
+        return flask.render_template("dog.html", fact=fact, dog=dog)
+
+
 app.run(host="127.0.0.1", port=5000, debug=True)
