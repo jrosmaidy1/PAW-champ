@@ -405,7 +405,7 @@ def feedback():
             from_="+13185943649",
             messaging_service_sid=os.getenv("MID"),
             body="new feedback!\n" + str(fback),
-            to="+1" + "XXXXXXXXX",
+            to="+1" + "XXXXXXXXXX",
         )
         print(message.sid)
         flash("Thank you for the feedback!")

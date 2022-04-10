@@ -6,25 +6,32 @@
 <body>
 
   <section class="members-container">
-    <section class="members-container2">
+
+    <section class="members-container2 members-item">
       <img src="{{dimages}}" class="randomPic">
       <img src="{{cimages}}" class="randomPic">
     </section>
-    <h2>
-      &#128054; - Dog Fact<br>{{dfact}} <br><br>
-      &#128049; - Cat Fact<br> {{cfact}} <br>
-    </h2>
-    <div class="form-items">
-        <form method="POST" action="/getcatdog">
-          <label class="form-label phone-label" for="phoneNumber">
-            Enter your phone number below <br>
-            to start receiving more facts:
-          </label><br>
-          <input name="phoneNumber" type="text" class="phone-form" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
-          <div>
-            <input type="submit" value="Submit">
-          </div>
-        </form>
+
+    <section class="fact">
+      <h2>
+        &#128054; - Dog Fact<br>{{dfact}} <br><br>
+        &#128049; - Cat Fact<br> {{cfact}} <br>
+      </h2>
+    </section>
+
+    <div class="search-container">
+      <form method="POST" action="/getcatdog">
+        <label class="phone-label" for="phoneNumber">
+          Enter your phone number below <br>
+          to start receiving more facts:
+        </label><br>
+        <input name="phoneNumber" type="text" class="phone-form" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
+        <div>
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+
   </section>
 </body>
 

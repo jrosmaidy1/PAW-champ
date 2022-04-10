@@ -7,21 +7,26 @@
 
   <section class="members-container">
     <img src="{{cimages}}" class="randomPic">
-    <h2>
-      &#128049; - Cat Fact<br>
-      {{cfact}}
-    </h2>
-    <div class="form-items">
-        <form method="POST" action="/getCat">
-          <label class="phone-label" for="phoneNumber">
-            Enter your phone number below <br>
-            to start receiving more facts:
-          </label><br>
-          <input name="phoneNumber" type="text" class="phone-form" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
-          <div>
-            <input type="submit" value="Submit">
-          </div>
-        </form>
+
+    <section class="fact">
+      <h2>
+        &#128049; - Cat Fact<br>
+        {{cfact}}
+      </h2>
+    </section>
+
+    <div class="search-container">
+      <form method="POST" action="/getCat">
+        <label class="phone-label" for="phoneNumber">
+          Enter your phone number below <br>
+          to start receiving more facts:
+        </label><br>
+        <input name="phoneNumber" type="text" class="phone-form" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
+        <div>
+          <input type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
   </section>
 </body>
 

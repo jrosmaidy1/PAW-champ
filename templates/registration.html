@@ -2,61 +2,46 @@
 {% block content %}
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
 
-<body>
-    <section class="container">
-        <p class="section-items">
-            Love Animals?<br>
-            You've come to the right place!<br>
-        </p>
+<body class="userLogin">
+    <section class="login-container">
+        <form method="POST" action="{{url_for('registration')}}" class="user-form">
+            {{ form.hidden_tag() }}
+            <label class="form-label">
+                Sign Up
+            </label><br>
 
-        <section class="section-items categories">
-            <a href="{{url_for('cat')}}"><img class="category" src="../static/kitty.png" alt="cats"> </a>
-            <a href="{{url_for('dog')}}"><img class="category" src="../static/doggo.jpeg"></a>
-            <a href="{{url_for('catdog')}}"><img class="category" src="../static/doggo&kitty.jpeg"></a>
-        </section>
+            <!-- name registration -->
+            <label class="user-label">
+                Name
+            </label>
+            {{ form.name(class="user-input") }}
 
-        <section class="registration">
-            <form method="POST" action="{{url_for('registration')}}">
-                {{ form.hidden_tag() }}
+            <br>
+            <!-- email registration -->
+            <label class="user-label">
+                Email
+            </label>
+            {{ form.email(class="user-input")}}
+            {% if form.email.errors %}
+            {% for error in form.email.errors %}
+            <span class="error-msg">{{ error }}</span>
+            {% endfor %}
+            {% endif %}
+            <!--submit-->
+            <br>
+            {{ form.submit }}
 
-                <fieldset class="form-group">
-                    <!--name registration-->
-                    <div class="form-group">
-                        <p1>name</p1>
-                        {{ form.name }}
-                    </div>
+            <a class="user-label" href="{{url_for('login')}}"> 
+                <u>Already have an account?</u>
+            </a>
 
-                    <!--email registration-->
-                    <div class="form-group">
-                        <p1>email</p1>
-                        {{ form.email }}
-                        {% if form.email.errors %}
-                        {% for error in form.email.errors %}
-                        <span>{{ error }}</span>
-                        {% endfor %}
-                        {% endif %}
-                    </div>
-                </fieldset>
-                <!--submit-->
-                <div class="form-group">
-                    {{ form.submit }}
-                </div>
-            </form>
-        </section>
+        </form>
     </section>
 
-    <!-- SCROLL PAGE FUNCTION! KEEP IF STILL WANT TO USE -->
-    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript">
-   $(document).on('click', 'a[href^="#"]', function (event) {
-     event.preventDefault();
-
-    $('html, body').animate({
-      scrollTop: $($.attr(this, 'href')).offset().top
-     }, 500);
-   });
- </script> -->
 </body>
 
 {%endblock content%}

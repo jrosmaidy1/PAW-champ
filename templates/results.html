@@ -5,26 +5,14 @@
 
 <body>
     <div class="search-container">
-        <table id="table1" class="table">
-            <b>Search here:
-                <input id="searchbar" type="text" onkeyup="search_org()" placeholder="Search results">
-                <form method="POST" action="{{url_for('searchAgain')}}">
-                    <input type="submit" value="Change Location" class=""></input>
-            </b><br>
-            <ul type="1" id=list>
-                {% for i in range(len) %}
-                <li class="org results-item">Organization name: <a href="{{olink[i]}}">{{oname[i]}}</a><br>
-                    Address: {{oadd1[i]}}<br>
-                    {{ocity[i]}}, {{ostate[i]}} {{opost[i]}}
-                    <br><br>
-                </li>
-                {%endfor%}
-            </ul>
-
-        <form method="POST" action="{{url_for('searchAgain')}}">
-            <input type="submit" value="Change location" class=""></input>
-        </form>
-
+        <form>
+            <label class="form-label">
+                Filter by:
+            </label>
+            <input id="searchbar" type="text" onkeyup="search_org()" placeholder="City/Org Name"><br>
+            <form method="POST" action="{{url_for('searchAgain')}}"><br>
+                <input type="submit" value="Change location" class=""></input>
+            </form>
         <ul type="1" id=list>
             {% for i in range(len) %}
             <li class="org results-item">
