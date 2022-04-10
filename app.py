@@ -269,6 +269,20 @@ def adopt():
 def results():
     return flask.render_template("results.html")
 
+@app.route("/searchAgain", methods=["GET", "POST"])
+def searchAgain():
+    city.clear()
+    state.clear()
+    post.clear()
+    name.clear()
+    link.clear()
+    add1.clear()
+    return flask.render_template("/adopt.html")
+
+@app.route("/userLogin", methods=["GET", "POST"])
+def userLogin():
+    return flask.render_template("userLogin.html")
+
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=8081, debug=True)
