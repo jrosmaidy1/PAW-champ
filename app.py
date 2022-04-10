@@ -185,11 +185,7 @@ def main():
     """
     Main page, requires user authentication to see content
     """
-    if current_user.is_authenticated:
-        email = current_user.email
-        return flask.render_template("/landingPage.html", email=email)
-
-    return redirect(url_for("login"))
+    return flask.render_template("/landingPage.html")
 
 
 @app.route("/registration", methods=["GET", "POST"])
@@ -228,7 +224,7 @@ def login():
         user = Users.query.filter_by(email=form.email.data).first()
         if user:
             login_user(user)
-            return redirect(url_for("landingPage"))
+            return redirect(url_for("home"))
         else:
             flash("Login unsuccessful, please check email")
     return flask.render_template("/login.html", form=form, email=email)
@@ -246,12 +242,23 @@ def logout():
 
 @app.route("/landingPage", methods=["GET", "POST"])
 def landingPage():
+    """
+    Landing page detailing what our website offers
+    """
+    return flask.render_template("/landingPage.html")
+
+
+@app.route("/home", methods=["GET", "POST"])
+def home():
+    """
+    Home page to view adoptions
+    """
     if current_user.is_authenticated:
         name = current_user.name
         email = current_user.email
-        return flask.render_template("/landingPage.html", name=name, email=email)
+        return flask.render_template("/home.html", name=name, email=email)
 
-    return redirect(url_for("login"))
+    return redirect(url_for("landingPage"))
 
 
 @app.route("/about", methods=["GET", "POST"])
@@ -410,38 +417,52 @@ def adopt():
     """
     Retrieves results from PetFinder API to find local shelters
     """
-    if request.method == "POST":
-        orgs(request.form.get("State"))
-        return flask.render_template(
-            "/results.html",
-            ocity=city,
-            ostate=state,
-            oadd1=add1,
-            opost=post,
-            oname=name,
-            olink=link,
-            len=len(name),
-        )
-    return flask.render_template("/adopt.html")
+    if current_user.is_authenticated:
+        try:
+            if request.method == "POST":
+                orgs(request.form.get("State"))
+                return flask.render_template(
+                    "/results.html",
+                    ocity=city,
+                    ostate=state,
+                    oadd1=add1,
+                    opost=post,
+                    oname=name,
+                    olink=link,
+                    len=len(name),
+                )
+            return flask.render_template("/adopt.html")
+        except:
+            ValueError
+            flash("You have entered an invalid location")
+            return redirect(url_for("adopt"))
+    return redirect(url_for("landingPage"))
 
 
 @app.route("/results", methods=["GET", "POST"])
 def results():
     """
-    Results Page displays a list of local shelters
+    Results page displays a list of local shelters
     """
-    return flask.render_template("results.html")
+    if current_user.is_authenticated:
+        return flask.render_template("results.html")
+    return redirect(url_for("landingPage"))
 
 
 @app.route("/searchAgain", methods=["GET", "POST"])
 def searchAgain():
-    city.clear()
-    state.clear()
-    post.clear()
-    name.clear()
-    link.clear()
-    add1.clear()
-    return flask.render_template("/adopt.html")
+    """
+    Search a new location for local shelters
+    """
+    if current_user.is_authenticated:
+        city.clear()
+        state.clear()
+        post.clear()
+        name.clear()
+        link.clear()
+        add1.clear()
+        return flask.render_template("/adopt.html")
+    return redirect(url_for("landingPage"))
 
 
 if __name__ == "__main__":
