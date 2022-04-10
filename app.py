@@ -87,6 +87,17 @@ def dogFact():
 def feedback():
     return flask.render_template("/feedback.html")
 
+@app.route("/adopt", methods=["GET", "POST"])
+def adopt():
+    if request.method == "POST":
+        return flask.render_template("/adopt.html")
+    return flask.render_template("/adopt.html")
+
+
+@app.route("/results", methods=["GET", "POST"])
+def results():
+    return flask.render_template("/results.html")
+
 @app.route("/ourService", methods=["GET", "POST"])
 def ourService():
     if request.method == "POST":
@@ -94,7 +105,7 @@ def ourService():
         replacement(phoneNumber)
         create_message(phoneNumber)
         flash("You have inputted a phone number!")
-    return flask.render_template("ourService.html")
+    return flask.render_template("/ourService.html")
 
 
 app.run(host="127.0.0.1", port=8081, debug=True)

@@ -1,65 +1,37 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> what a cat-astrophe! </title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Karla:wght@300&family=Playfair+Display:wght@400;600&family=Quicksand:wght@600&display=swap');
-  </style>
-  <link href="../static/style.css?version=51" rel="stylesheet" type="text/css" />
-</head>
+{% extends "layout.html" %}
+{% block content %}
 
-<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+  <body>
+      <section class="container">
+        <p class="section-items">
+          Love Animals?<br>
+          You've come to the right place!<br>
+        </p>
 
-  <!-- navbar in every page -->
-  <nav class="navbar bg-light">
-    <a class="navbar-brand" href="{{url_for('landingPage')}}">CAT-ASTROPHE</a>
-    <div>
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{url_for('landingPage')}}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('about')}}">About</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('feedback')}}">Feedback</a>
-      </li>
-      </ul>
-    </div>
-  </nav>
-
-    <section class="container">
-      <p class="section-items">
-        Love Animals?<br>
-        You've come to the right place!<br>
-      </p>
-
-      <section class="section-items categories">
-        <a href="{{url_for('catFact')}}"><img class="category" src="../static/kitty.png" alt="cats"> </a>
-        <a href="{{url_for('dogFact')}}"><img class="category" src="../static/doggo.jpeg"></a>
-        <a href="{{url_for('catFact')}}"><img class="category" src="../static/doggo&kitty.jpeg"></a>
+        <section class="section-items categories">
+          <a href="{{url_for('catFact')}}"><img class="category" src="../static/kitty.png" alt="cats"> </a>
+          <a href="{{url_for('dogFact')}}"><img class="category" src="../static/doggo.jpeg"></a>
+          <a href="{{url_for('catFact')}}"><img class="category" src="../static/doggo&kitty.jpeg"></a>
+        </section>
+        
+        <a href="{{url_for('adopt')}}">Adopt!</a>
       </section>
-    </section>
 
-  <!-- <footer class="footer"> hellaur </footer> -->
-
-  <!-- SCROLL PAGE FUNCTION! KEEP IF STILL WANT TO USE -->
-  <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<!-- SCROLL PAGE FUNCTION! KEEP IF STILL WANT TO USE -->
+ <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript">
-    $(document).on('click', 'a[href^="#"]', function (event) {
-      event.preventDefault();
+   $(document).on('click', 'a[href^="#"]', function (event) {
+     event.preventDefault();
 
-      $('html, body').animate({
-        scrollTop: $($.attr(this, 'href')).offset().top
-      }, 500);
-    });
-  </script> -->
-
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top
+     }, 500);
+   });
+ </script> -->
+ 
 </body>
 
-</html>
+{%endblock content%}
+
