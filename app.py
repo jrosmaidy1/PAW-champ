@@ -1,12 +1,26 @@
+import email
 import os
-import requests
-from twilio.rest import Client
+from datetime import datetime
+
 import flask
 import petpy
+import requests
+from dotenv import find_dotenv, load_dotenv
+from flask import flash, redirect, request, url_for
+from flask_login import (
+    LoginManager,
+    UserMixin,
+    current_user,
+    login_required,
+    login_user,
+    logout_user,
+)
+from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
 from petpy import Petfinder
-from flask import request, flash
-
-from dotenv import load_dotenv, find_dotenv
+from twilio.rest import Client
+from wtforms import BooleanField, DecimalField, PasswordField, StringField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
 load_dotenv(find_dotenv())
 
@@ -19,6 +33,72 @@ key = os.getenv("OKEY")
 secret = os.getenv("OSECRET")
 pf = Petfinder(key=key, secret=secret)
 client = Client(account_sid, auth_token)
+
+# database flask config
+app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
+
+# initialize database
+db = SQLAlchemy(app)
+
+# login manager
+login_manager = LoginManager()
+login_manager.login_view = "login"
+login_manager.init_app(app)
+
+# loads user
+@login_manager.user_loader
+def load_user(name):
+    """Get the current user name"""
+    return Users.query.get(name)
+
+
+# Users database model
+class Users(db.Model, UserMixin):
+    # nullable cannot be empty, unique email cannot be repeated
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20), nullable=False)
+    email = db.Column(db.String(120), nullable=False, unique=True)
+    date_added = db.Column(db.DateTime, default=datetime.utcnow)
+
+    # create a string
+    def __repr__(self):
+        return "<Name %r>" % self.name
+
+
+# Free database model?
+
+
+# Premium database model?
+
+
+# Adoption database model #### WIP ####
+# class Adopt(db.model):
+#     id = db.Column(db.Integer, primary_key=True)
+
+
+# flask RegistrationForm
+class RegistrationForm(FlaskForm):
+
+    name = StringField(
+        "Name",
+        validators=[DataRequired(), Length(min=2, max=20)],
+    )
+    email = StringField("Email", validators=[DataRequired()])
+    submit = SubmitField("Sign Up")
+
+    # validates user's email, returns error if email is taken
+    def validate_email(self, email):
+        user = Users.query.filter_by(email=email.data).first()
+        if user:
+            raise ValidationError("That email is taken. Please choose a different one.")
+
+
+# flask LoginForm class
+class LoginForm(FlaskForm):
+
+    email = StringField("Email", validators=[DataRequired(), Email()])
+    submit = SubmitField("Login")
+
 
 # catAPI
 catUrl = "https://api.thecatapi.com/v1/images/search?format=json"
@@ -43,17 +123,20 @@ cfactRes = requests.get(cfactUrl, headers=cfactHeaders, data=cfactData)
 dogRes = requests.get(dogUrl, headers=dogHeaders, data=dogData)
 dfactRes = requests.get(factUrl, headers=dfactHeaders, data=dfactData)
 
+# returns cat and dog facts in json format
 catR = catRes.json()
 cfactR = cfactRes.json()
 dogR = dogRes.json()
 dfactR = dfactRes.json()
 
+# initializes result objects
 city = []
 state = []
 post = []
 name = []
 link = []
 add1 = []
+
 # use twilio to send messages
 def orgs(loc):
     org = pf.organizations(
@@ -78,6 +161,7 @@ def orgs(loc):
         link.append(olink)
 
 
+# fixes phone number for form input
 def replacement(phoneNumber):
     phoneNumber = phoneNumber.replace(" ", "")
     phoneNumber = phoneNumber.replace("-", "")
@@ -87,6 +171,7 @@ def replacement(phoneNumber):
     return phoneNumber
 
 
+# parses json files for cat and dog images and facts
 def cg():
     cimages = catR[0]["url"]
     cfact = cfactR["fact"]
@@ -97,21 +182,91 @@ def cg():
 
 @app.route("/")
 def main():
-    return flask.render_template("/landingPage.html")
+    """
+    Main page, requires user authentication to see content
+    """
+    if current_user.is_authenticated:
+        email = current_user.email
+        return flask.render_template("/landingPage.html", email=email)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/registration", methods=["GET", "POST"])
+def registration():
+    """
+    Registration page, requires name and email
+    """
+    form = RegistrationForm()
+    name = None  # initialize name
+    if form.validate_on_submit():
+        user = Users.query.filter_by(email=form.email.data).first()
+        if user is None:
+            user = Users(name=form.name.data, email=form.email.data)
+            db.session.add(user)
+            db.session.commit()
+            flash("User added successfully, log in using your email")
+            return redirect(url_for("login"))
+
+        name = form.name.data
+
+        # clear form
+        form.name.data = ""
+        form.email.data = ""
+    return flask.render_template(
+        "/registration.html", form=form, name=name, email=email
+    )
+
+
+@app.route("/login", methods=["GET", "POST"])
+def login():
+    """
+    Login page, requires email
+    """
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = Users.query.filter_by(email=form.email.data).first()
+        if user:
+            login_user(user)
+            return redirect(url_for("landingPage"))
+        else:
+            flash("Login unsuccessful, please check email")
+    return flask.render_template("/login.html", form=form, email=email)
+
+
+@app.route("/logout")
+def logout():
+    """
+    Log user out and redirect to login page
+    """
+
+    logout_user()
+    return redirect(url_for("login"))
 
 
 @app.route("/landingPage", methods=["GET", "POST"])
 def landingPage():
-    return flask.render_template("/landingPage.html")
+    if current_user.is_authenticated:
+        name = current_user.name
+        email = current_user.email
+        return flask.render_template("/landingPage.html", name=name, email=email)
+
+    return redirect(url_for("login"))
 
 
 @app.route("/about", methods=["GET", "POST"])
 def about():
+    """
+    Showcases development team's bio
+    """
     return flask.render_template("/about.html")
 
 
 @app.route("/cat", methods=["GET", "POST"])
 def cat():
+    """
+    Uses Cat and Cat Fact API to retrieve image and fact
+    """
     cimages = catR[0]["url"]
     cfact = cfactR["fact"]
     return flask.render_template("/cat.html", cfact=cfact, cimages=cimages)
@@ -119,6 +274,9 @@ def cat():
 
 @app.route("/getCat", methods=["GET", "POST"])
 def getCat():
+    """
+    Twilio API to receive a text with cat fact and cat image
+    """
     if request.method == "POST":
         phoneNumber = request.form.get("phoneNumber")
         replacement(phoneNumber)
@@ -139,6 +297,9 @@ def getCat():
 
 @app.route("/dog", methods=["GET", "POST"])
 def dog():
+    """
+    Uses Dog and Dog Fact API to retrieve image and fact
+    """
     dimages = dogR["message"]
     dfact = dfactR["facts"][0]
     return flask.render_template("/dog.html", dfact=dfact, dimages=dimages)
@@ -146,6 +307,9 @@ def dog():
 
 @app.route("/getDog", methods=["GET", "POST"])
 def getDog():
+    """
+    Twilio API to receive a text with cat fact and cat image
+    """
     if request.method == "POST":
         phoneNumber = request.form.get("phoneNumber")
         replacement(phoneNumber)
@@ -166,6 +330,9 @@ def getDog():
 
 @app.route("/catdog", methods=["GET", "POST"])
 def catdog():
+    """
+    Retrieves both cat and dog facts and images
+    """
     cimages = catR[0]["url"]
     cfact = cfactR["fact"]
     dimages = dogR["message"]
@@ -177,6 +344,9 @@ def catdog():
 
 @app.route("/getcatdog", methods=["GET", "POST"])
 def getcatdog():
+    """
+    Sends both cat and dog facts and images as a text message
+    """
     if request.method == "POST":
         phoneNumber = request.form.get("phoneNumber")
         replacement(phoneNumber)
@@ -203,13 +373,16 @@ def getcatdog():
 
 @app.route("/feedback", methods=["GET", "POST"])
 def feedback():
+    """
+    Feedback page to send page feedback to development team
+    """
     if request.method == "POST":
         fback = request.form.get("Suggestion")
         message = client.messages.create(
             from_="+13185943649",
             messaging_service_sid=os.getenv("MID"),
             body="new feedback!\n" + str(fback),
-            to="+1" + "########",
+            to="+1" + "6789007500",
         )
         print(message.sid)
         flash("Thank you for the feedback!")
@@ -218,6 +391,9 @@ def feedback():
 
 @app.route("/adopt", methods=["GET", "POST"])
 def adopt():
+    """
+    Retrieves results from PetFinder API to find local shelters
+    """
     if request.method == "POST":
         orgs(request.form.get("State"))
         return flask.render_template(
@@ -235,7 +411,22 @@ def adopt():
 
 @app.route("/results", methods=["GET", "POST"])
 def results():
+    """
+    Results Page displays a list of local shelters
+    """
     return flask.render_template("results.html")
 
 
-app.run(host="127.0.0.1", port=8081, debug=True)
+@app.route("/searchAgain", methods=["GET", "POST"])
+def searchAgain():
+    city.clear()
+    state.clear()
+    post.clear()
+    name.clear()
+    link.clear()
+    add1.clear()
+    return flask.render_template("/adopt.html")
+
+
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=8081, debug=True)

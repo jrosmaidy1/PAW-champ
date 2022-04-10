@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+
+<body>
+    <section class="container">
+        <p class="section-items">
+            Love Animals?<br>
+            You've come to the right place!<br>
+        </p>
+
+        <section class="section-items categories">
+            <a href="{{url_for('cat')}}"><img class="category" src="../static/kitty.png" alt="cats"> </a>
+            <a href="{{url_for('dog')}}"><img class="category" src="../static/doggo.jpeg"></a>
+            <a href="{{url_for('catdog')}}"><img class="category" src="../static/doggo&kitty.jpeg"></a>
+        </section>
+
+        <a href="{{url_for('adopt')}}">Adopt!</a>
+    </section>
+
+    <section class="registration">
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+
+            <fieldset class="form-group">
+                <!--email login-->
+                <div class="form-group">
+                    <p1>email</p1>
+                    {{ form.email }}
+                </div>
+            </fieldset>
+            <!--submit-->
+            <div class="form-group">
+                {{ form.submit }}
+            </div>
+        </form>
+    </section>
+
+    <!-- SCROLL PAGE FUNCTION! KEEP IF STILL WANT TO USE -->
+    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+   $(document).on('click', 'a[href^="#"]', function (event) {
+     event.preventDefault();
+
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top
+     }, 500);
+   });
+ </script> -->
+</body>
+
+
+{%endblock content%}
