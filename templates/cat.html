@@ -10,7 +10,8 @@
       <img src="{{cimages}}" class="profiles">
     </h2>
     <h2 class="section-items">
-      CAT FACT - {{cfact}} <br>
+      &#128049; - Cat Fact<br>
+      {{cfact}}
     </h2>
     <div class="form-items">
       <form method="POST" action="/getCat">
@@ -18,17 +19,12 @@
           Enter your phone number below <br>
           to start receiving more facts:
         </label><br>
-        <input name="phoneNumber" type="text" class="form-box" id="phoneNumber" placeholder="XXXXXXXXXX" required><br>
+        <input name="phoneNumber" type="text" class="form-box" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
         <div>
           <input type="submit" value="Submit">
         </div>
       </form>
   </section>
-
-  </div class="feedback">
-  <a class="feedback-btn" href="{{url_for('feedback')}}"> <img src="../static/feedback.jpeg" class="feedback-icon"> </a>
-  </div>
-
 </body>
 
 {%endblock content%}

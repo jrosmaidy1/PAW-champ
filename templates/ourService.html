@@ -1,9 +1,36 @@
-{% extends "layout.html" %}
-{% block content %}
+<!DOCTYPE html>
+<html>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> what a cat-astrophe! </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Karla:wght@300&family=Londrina+Solid:wght@300&family=Playfair+Display:wght@400;600&display=swap');
+  </style>
+  <link href="../static/style.css" rel="stylesheet" type="text/css" />
+</head>
 
 <body>
+  <!-- navbar in every page -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="{{url_for('landingPage')}}">CAT-ASTROPHE</a>
+
+      <div>
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('landingPage')}}">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('about')}}">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     {% with messages = get_flashed_messages() %}
     {% if messages %}
@@ -15,6 +42,7 @@
     {% endif %}
     {% endwith %}
     {% block body %}{% endblock %}
+  </header>
 
   <div class="intro-items">
 
@@ -35,8 +63,12 @@
       </div>
     </form>
 
-    <!-- <footer class="footer"> hellaur </footer> -->
+
+  </div>
+
+  <square class="footer footer-bg">
+  </square>
 
 </body>
 
-{%endblock content%}
+</html>
