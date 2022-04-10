@@ -7,6 +7,7 @@ body {
     background-image: url(../static/bg-nocat.png);
     background-attachment: fixed;
     background-size: cover;
+    position: relative;
 }
 
 h1 {
@@ -21,7 +22,7 @@ h1 {
 }
 
 h2 {
-    font-family: 'Karla';
+    font-family: 'Quicksand';
     font-size: 2.5vw;
     font-weight: 400;
     text-align: center;
@@ -31,7 +32,7 @@ h2 {
 }
 
 h3 {
-    font-family: 'Karla';
+    font-family: 'Quicksand';
     font-size: 1.5vw;
     font-weight: 400;
     text-align: center;
@@ -52,6 +53,7 @@ h3 {
     padding-right: 0.5em;
     position: sticky;
     top: 0;
+    width: 100vw;
 }
 
 .navbar-brand {
@@ -106,7 +108,6 @@ h3 {
     text-align: center;
     height: 75vh;
     display: flex;
-    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -129,6 +130,9 @@ h3 {
     font-size: 1.5vw;
     min-height: 3vw;
     align-self: center;
+
+    background: rgba(241, 225, 166, 0.8);
+    border-radius: 20px;
 }
 
 .categories {
@@ -146,24 +150,24 @@ h3 {
 
 /* about page styling */
 .members-container {
+    font-family: 'Quicksand';
+    font-size: 1.7vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    position: relative;
     animation: factTransition 0.75s;
 }
 
 .members-container2 {
     display: flex;
     align-items: center;
-    justify-content: center;
-    animation: factTransition 0.75s;
+    justify-content: space-evenly;
 }
 
 .members-item {
-    font-family: 'Quicksand';
-    font-size: 1.7vw;
-    font-weight: 300;
     text-align: center;
     align-self: center;
     margin-bottom: .5em;
@@ -200,7 +204,6 @@ h3 {
     font-size: 2vw;
     font-weight: 400;
     text-align: center;
-    height: 75vh;
 
     display: flex;
     flex-direction: column;
@@ -226,12 +229,12 @@ h3 {
 }
 
 .form-label {
+    font-size: 2vw;
     text-align: center;
     font-family: 'Quicksand';
     color: #000000;
     text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
 }
-
 
 .feedback {
     position: relative;
@@ -241,6 +244,7 @@ h3 {
     position: fixed;
     right: .5em;
     top: 50vh;
+    background: -2px 3px 4px rgba(91, 67, 49, 0.4);
 }
 
 .feedback-icon {
@@ -254,12 +258,19 @@ input[type=submit] {
     font-size: 1.5vw;
 }
 
+input[type=button] {
+    background: rgba(241, 225, 166, 0.8);
+    border-radius: 20px;
+    font-size: 1.5vw;
+}
+
 /* searchbar styling */
 .search-container {
     font-family: 'Quicksand';
     font-size: 1.5vw;
     font-weight: 400;
     text-align: center;
+    height: 75vh;
 
     display: flex;
     flex-direction: column;
@@ -279,7 +290,7 @@ input[type=submit] {
 
     font-size: 1.55vw;
     min-width: 8vw;
-    min-height: 6vh;
+    min-height: 4vh;
     max-height: max-content;
 }
 
@@ -291,12 +302,87 @@ input[type=submit] {
     text-align: left;
     padding-left: .5em;
     padding-right: .5em;
-
     width: 40vw;
+
     background: #F3E4B2;
     border: 3px solid rgba(56, 31, 22, 0.54);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+}
+
+/* fact page styling */
+.randomPic {
+    padding-top: .5em;
+    padding-left: 1em;
+    max-width: 30vw;
+    max-height: 25vh;
+    filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
+}
+
+.phone-form{
+    margin: 1em;
+    text-align: center;
+    background: #F3E4B2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: .5em;
+
+    font-size: 1.55vw;
+    min-width: 45vw;
+    min-height: 4vh;
+}
+
+.phone-label {
+    font-size: 2vw;
+}
+
+/* userLogin styling */
+.userLogin {
+    background-image: url(../static/bg-cat.png);
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.login-container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 3em;
+    width: 83vw;
+    height: 55vh;
+
+    animation: factTransition .75s;
+}
+
+.user-form {
+    font-family: 'Quicksand';
+    font-size: 2vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2em;
+
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20%;
+}
+
+.user-label {
+    font-size: 1.5vw;
+    padding-bottom: .5em;
+}
+
+.user-input {
+    border: none;
+    border-bottom: 2px solid #381F16;
+    color: none;
+    font-size: 1.5vw;
+    width: 20vw;
 }
 
 /* footer styling */
