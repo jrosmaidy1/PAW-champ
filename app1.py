@@ -25,7 +25,7 @@ def main():
         pf = Petfinder(key=key, secret=secret)
         org = pf.organizations(
             location=request.form.get("State"),
-            results_per_page=15,
+            results_per_page=10,
             pages=1,
             distance=50,
         )
@@ -34,22 +34,28 @@ def main():
         post = []
         name = []
         link = []
+        add1 = []
         for i in org["organizations"]:
 
             ocity = i["address"]["city"]
             ostate = i["address"]["state"]
+            oadd1 = i["address"]["address1"]
+            oadd2 = i["address"]["address2"]
             opost = i["address"]["postcode"]
             oname = i["name"]
             olink = i["url"]
             city.append(ocity)
             state.append(ostate)
+            add1.append(oadd1)
             post.append(opost)
             name.append(oname)
             link.append(olink)
+            print(org)
         return flask.render_template(
             "org.html",
             ocity=city,
             ostate=state,
+            oadd1=add1,
             opost=post,
             oname=name,
             olink=link,

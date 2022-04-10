@@ -1,8 +1,32 @@
-<ol type="1">
-    {% for i in range(len) %}
-    <li>{{oname[i]}}<br>
-        {{ocity[i]}}, {{ostate[i]}} {{opost[i]}}<br>
-        <a href="{{olink[i]}}">Link Here</a><br>
-    </li>
-    {%endfor%}
-</ol>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E">
+</script>
+<table id="table1" class="table">
+    <b>Search here:
+        <input id="searchbar" type="text" onkeyup="search_org()" placeholder="Search here">
+    </b><br>
+    <ul type="1" id=list>
+        {% for i in range(len) %}
+        <li class=org>Organization name: <a href="{{olink[i]}}">{{oname[i]}}</a><br>
+            Address: {{oadd1[i]}}<br>
+            {{ocity[i]}}, {{ostate[i]}} {{opost[i]}}
+            <br><br>
+        </li>
+        {%endfor%}
+    </ul>
+    <script>
+        function search_org() {
+            let input = document.getElementById('searchbar').value
+            input = input.toLowerCase();
+            let x = document.getElementsByClassName('org');
+
+            for (i = 0; i < x.length; i++) {
+                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                    x[i].style.display = "none";
+                }
+                else {
+                    x[i].style.display = "list-item";
+                }
+            }
+        }
+    </script>
+</table>
