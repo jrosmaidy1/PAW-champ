@@ -1,104 +1,36 @@
 {% extends "layout.html" %}
 {% block content %}
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-</script>
-<!DOCTYPE html>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
 
 <body>
+  <section class="container">
+    <p class="section-items">
+      Love Animals?<br>
+      You've come to the right place!<br>
+    </p>
 
-  <div>
-    <section id="section1">
-      <p class="section-items">
-        Love Cats? <br>
-        You've come to the right place! <br>
-
-        <a class="next-button" href="#section2"> Tell me more! </a>
-      </p>
+    <section class="section-items categories">
+      <a href="{{url_for('cat')}}"><img class="category" src="../static/kitty.png" alt="cats"> </a>
+      <a href="{{url_for('dog')}}"><img class="category" src="../static/doggo.jpeg"></a>
+      <a href="{{url_for('catdog')}}"><img class="category" src="../static/doggo&kitty.jpeg"></a>
     </section>
 
-    <section id="section2">
-      <p class="section-items">
-        Here at Cat-astrophe <br>
-        we give random cat facts daily <br>
-        to you.. for FREE! <br>
-        Still interested? <br>
+    <a href="{{url_for('adopt')}}">Adopt!</a>
+  </section>
 
-        <a class="next-button" href="#section3"> Yes </a> <br>
-        <a class="next-button" href="#bye"> No </a>
-      </p>
-    </section>
+  <!-- SCROLL PAGE FUNCTION! KEEP IF STILL WANT TO USE -->
+  <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script type="text/javascript">
+   $(document).on('click', 'a[href^="#"]', function (event) {
+     event.preventDefault();
 
-    <section id="section3">
-      <p class="section-items">
-        Ooh! Here's one: <br>
-        Did you know that cats <br>
-        spend 70% of their lives <br>
-        sleeping? <br>
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top
+     }, 500);
+   });
+ </script> -->
 
-        <a class="next-button" href="#section4"> Yeah I knew that. </a> <br>
-
-      </p>
-    </section>
-
-    <section id="section4">
-      <p class="section-items">
-        Oh, sure you do. <br>
-        Well then, did you know that <br>
-        cats are typically left-handed? <br>
-
-        <a class="next-button" href="#section5"> No... </a> <br>
-
-      </p>
-    </section>
-
-    <section id="section5">
-      <p class="section-items">
-        Ha! <br>
-        See, Cat-astrophe is the real deal! <br>
-        The offer of daily cat facts is still up, <br>
-        Still interested? <br>
-
-        <a class="next-button" href="#section6"> Yes I'm sold! </a> <br>
-        <a class="next-button" href="#bye"> No, this is kinda shady. </a>
-
-      </p>
-    </section>
-
-    <section id="section6">
-      <p class="section-items">
-        Sit tight and <br>
-        buckle up for the <br>
-        catastrophe of cats! <br>
-
-        <a class="next-button" href="{{url_for('ourService')}}"> Woohoo! </a>
-        <!-- FOR JASON/ZI {{url_for('ourService')}} -->
-      </p>
-    </section>
-
-    <section id="bye">
-      <p class="section-items">
-        Oh, too bad. <br>
-        I'll give you a another chance <br>
-        if you change your mind. <br>
-
-        <a class="next-button" href="#section2"> Talk to them again. </a>
-
-      </p>
-    </section>
-
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script type="text/javascript">
-      $(document).on('click', 'a[href^="#"]', function (event) {
-        event.preventDefault();
-
-        $('html, body').animate({
-          scrollTop: $($.attr(this, 'href')).offset().top
-        }, 500);
-      });
-    </script>
-
-    <!-- <square class="footer footer-bg">
-  </square> -->
-  </div>
 </body>
-{% endblock content %}
+
+{%endblock content%}
