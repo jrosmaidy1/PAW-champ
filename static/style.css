@@ -14,8 +14,6 @@ h1 {
     font-family: 'Quicksand';
     font-style: normal;
     font-size: 3vw;
-    text-align: center;
-    align-self: center;
 
     color: #000000;
     text-shadow: -3vw 5vw 5vw rgba(91, 67, 49, 0.5);
@@ -23,7 +21,7 @@ h1 {
 
 h2 {
     font-family: 'Quicksand';
-    font-size: 2.5vw;
+    font-size: 2.05vw;
     font-weight: 400;
     text-align: center;
 
@@ -61,7 +59,8 @@ h3 {
     text-decoration: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 7vw;
+    width: 20vw;
+    height: 20vh;
     text-align: center;
 
     color: #FFFBF2;
@@ -93,13 +92,43 @@ h3 {
     padding-right: 2em;
 }
 
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-family: inherit;
+    margin: 0;
+
+    border: none;
+    font-weight: 600;
+    background-color: #381F16;
+    color:#FFFBF2;
+    text-shadow: -1px 3px 4px rgba(235, 179, 82, 0.38);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:rgba(56, 31, 22, 0.54);
+    min-width: 100px;
+    font-size: 1.7vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 .active {
     text-decoration: underline;
 }
 
-
 .nav-link:hover,
-.navbar-brand:hover {
+.navbar-brand:hover,
+.dropdown:hover .dropbtn {
     color: #EC967D;
 }
 
@@ -141,11 +170,24 @@ h3 {
     align-items: center;
 }
 
+
 .category {
-    padding-left: .5em;
     border-radius: 50%;
     width: 15vw;
     filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
+    padding: .5em;
+}
+
+.category:hover {
+    filter: drop-shadow(0px 0px 20px rgba(91, 67, 49, 1));
+}
+
+.welcome-message {
+    align-self: flex-start;
+    justify-content: flex-start;
+    height: 10vh;
+    padding:0;
+    padding-left: 1em;
 }
 
 /* about page styling */
@@ -157,7 +199,6 @@ h3 {
     align-items: center;
     justify-content: center;
 
-    position: relative;
     animation: factTransition 0.75s;
 }
 
@@ -193,17 +234,13 @@ h3 {
     filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
 }
 
-
-.github-logo:hover {  
-}
-
-
 /* form styling */
 .form-items {
     font-family: 'Quicksand';
     font-size: 2vw;
     font-weight: 400;
     text-align: center;
+    height: 75vh;
 
     display: flex;
     flex-direction: column;
@@ -229,7 +266,7 @@ h3 {
 }
 
 .form-label {
-    font-size: 2vw;
+    font-size: 1.8vw;
     text-align: center;
     font-family: 'Quicksand';
     color: #000000;
@@ -270,13 +307,13 @@ input[type=button] {
     font-size: 1.5vw;
     font-weight: 400;
     text-align: center;
-    height: 75vh;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding: 0.2em;
+
     animation: factTransition .75s;
 }
 
@@ -290,7 +327,7 @@ input[type=button] {
 
     font-size: 1.55vw;
     min-width: 8vw;
-    min-height: 4vh;
+    min-height: 3vh;
     max-height: max-content;
 }
 
@@ -311,6 +348,15 @@ input[type=button] {
 }
 
 /* fact page styling */
+.fact {
+    max-width: 45vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
 .randomPic {
     padding-top: .5em;
     padding-left: 1em;
@@ -375,14 +421,25 @@ input[type=button] {
 .user-label {
     font-size: 1.5vw;
     padding-bottom: .5em;
+    padding-top: .5em;
+    text-decoration: none;
+    color: #000000;
 }
 
 .user-input {
+    text-decoration: none;
     border: none;
     border-bottom: 2px solid #381F16;
     color: none;
     font-size: 1.5vw;
     width: 20vw;
+}
+
+.error-msg {
+    font-size: 1.5vw;
+    padding-bottom: .5em;
+    color: red;
+    padding-top: 0.5em;
 }
 
 /* footer styling */
@@ -412,9 +469,3 @@ input[type=button] {
     }
 }
 
-@keyframes imageTransition {
-    from {
-    }
-    to {
-    }
-}

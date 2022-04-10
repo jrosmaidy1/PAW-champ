@@ -3,51 +3,33 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
 
-<body>
-    <section class="container">
-        <p class="section-items">
-            Love Animals?<br>
-            You've come to the right place!<br>
-        </p>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
 
-        <section class="section-items categories">
-            <a href="{{url_for('cat')}}"><img class="category" src="../static/kitty.png" alt="cats"> </a>
-            <a href="{{url_for('dog')}}"><img class="category" src="../static/doggo.jpeg"></a>
-            <a href="{{url_for('catdog')}}"><img class="category" src="../static/doggo&kitty.jpeg"></a>
-        </section>
-
-        <a href="{{url_for('adopt')}}">Adopt!</a>
-    </section>
-
-    <section class="registration">
-        <form method="POST" action="">
+<body class="userLogin">
+    <section class="login-container">
+        <form method="POST" action="" class="user-form">
             {{ form.hidden_tag() }}
+            <label class="form-label">
+                Login
+            </label><br>
 
-            <fieldset class="form-group">
-                <!--email login-->
-                <div class="form-group">
-                    <p1>email</p1>
-                    {{ form.email }}
-                </div>
-            </fieldset>
+            <!--email login-->
+            <label class="user-label">
+                Email
+            </label>
+            {{ form.email(class="user-input")}}
+
+            <br>
             <!--submit-->
-            <div class="form-group">
-                {{ form.submit }}
-            </div>
+            {{ form.submit }}
+
+            <a class="user-label" href="{{url_for('registration')}}"> 
+                <u>Create an account</u>
+            </a>
         </form>
     </section>
-
-    <!-- SCROLL PAGE FUNCTION! KEEP IF STILL WANT TO USE -->
-    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-  <script type="text/javascript">
-   $(document).on('click', 'a[href^="#"]', function (event) {
-     event.preventDefault();
-
-    $('html, body').animate({
-      scrollTop: $($.attr(this, 'href')).offset().top
-     }, 500);
-   });
- </script> -->
 </body>
 
 

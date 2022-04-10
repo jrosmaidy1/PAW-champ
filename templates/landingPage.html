@@ -4,24 +4,61 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
 
 <body>
-  <section class="container">
+  <section class="search-container">
     <p class="section-items">
       Love Animals?<br>
       You've come to the right place!<br>
     </p>
 
     <section class="section-items categories">
-      <a href="{{url_for('cat')}}"><img class="category" src="../static/kitty.png" alt="cats"> </a>
-      <a href="{{url_for('dog')}}"><img class="category" src="../static/doggo.jpeg"></a>
-      <a href="{{url_for('catdog')}}"><img class="category" src="../static/doggo&kitty.jpeg"></a>
+      <label class="form-label">
+        <a href="{{url_for('cat')}}"><img class="category" src="../static/kitty.png" alt="cats"></a>
+        <br>
+        Cat facts!
+      </label>
+
+      <label class="form-label">
+        <a href="{{url_for('dog')}}"><img class="category" src="../static/doggo.jpeg"></a>
+        <br>
+        Dog facts!
+      </label>
+
+      <label class="form-label">
+        <a href="{{url_for('catdog')}}"><img class="category" src="../static/doggo&kitty.jpeg"></a>
+        <br>
+        Cat & dog facts!
+      </label>
     </section>
 
-    <button class="fact-button"><a href="{{url_for('adopt')}}" style="text-decoration: none; color: black">Adopt!</a></button>
+    <section class="search-container">
+      <h3>
+        Did you know that approximately 6.3 million companion animals <br> enter animal shelters nationwide every year?
+      </h3>
 
-  </section>
+      <h3>
+        Out of the 6.3 million, approximately 3.1 million are dogs <br> while 3.2 million are cats!
+      </h3>
 
-  <!-- SCROLL PAGE FUNCTION! KEEP IF STILL WANT TO USE -->
-  <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+      <h3>
+        With so many of our furry friends homeless, consider adopting <br> one for your loving home today!
+      </h3>
+
+      <h3>
+        'PAW-Champ' is a one of a kind website that brings you both <br> cat and dog facts!
+      </h3>
+
+      <h3>
+        Along with easy access to local shelters near you!
+      </h3>
+
+      <h3>
+        With paws united, we can all be PAW-Champs!
+      </h3>
+
+    </section>
+
+    <!-- SCROLL PAGE FUNCTION! KEEP IF STILL WANT TO USE -->
+    <!-- <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script type="text/javascript">
    $(document).on('click', 'a[href^="#"]', function (event) {
      event.preventDefault();
@@ -33,8 +70,4 @@
  </script> -->
 
 </body>
-<<<<<<< HEAD
-=======
-
->>>>>>> updatedHTML
 {%endblock content%}

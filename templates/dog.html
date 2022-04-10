@@ -7,11 +7,15 @@
 
   <section class="members-container">
     <img src="{{dimages}}" class="randomPic">
-    <h2>
-      &#128054; - Dog Fact<br>
-      {{dfact}}
-    </h2>
-    <div class="form-items">
+    
+    <section class="fact">
+      <h2>
+        &#128054; - Dog Fact<br>
+        {{dfact}}
+      </h2>
+    </section>
+
+    <div class="search-container">
         <form method="POST" action="/getDog">
           <label class="phone-label" for="phoneNumber">
             Enter your phone number below <br>
