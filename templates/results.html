@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+
+<body>
+    <div class="search-container">
+    <table id="results-table">
+        <ul type="1" id=results-list>
+            <li class="org results-item">
+                <br>
+                [NAME] 
+                <br><a href="">[LINK]</a><br>
+                Address: 12345<br>
+                Atlanta, GA 30324
+                <br>
+                <br>
+            </li>
+        </ul>
+
+        <script>
+            function search_org() {
+                let input = document.getElementById('searchbar').value
+                input = input.toLowerCase();
+                let x = document.getElementsByClassName('org');
+    
+                for (i = 0; i < x.length; i++) {
+                    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                        x[i].style.display = "none";
+                    }
+                    else {
+                        x[i].style.display = "results-item";
+                    }
+                }
+            }
+        </script>
+        
+    </table>
+    </div>
+</body>
+
+{%endblock content%}

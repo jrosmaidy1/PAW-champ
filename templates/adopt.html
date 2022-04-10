@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+
+<body>
+    <div class="search-container">
+        <form method="POST" action="{{url_for('results')}}">
+            <div>
+              <input type="search" id="searchbar" name="q"
+               placeholder="Search here...">
+              <input type="submit" value="Search" class="" ></input>
+            </div>
+        </form>
+    </div>
+</body>
+
+{%endblock content%}
