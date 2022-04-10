@@ -7,20 +7,16 @@ import petpy
 import requests
 from dotenv import find_dotenv, load_dotenv
 from flask import flash, redirect, request, url_for
-from flask_login import (
-    LoginManager,
-    UserMixin,
-    current_user,
-    login_required,
-    login_user,
-    logout_user,
-)
+from flask_login import (LoginManager, UserMixin, current_user, login_user,
+                         logout_user)
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from petpy import Petfinder
 from twilio.rest import Client
-from wtforms import BooleanField, DecimalField, PasswordField, StringField, SubmitField
-from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
+from wtforms import (BooleanField, DecimalField, PasswordField, StringField,
+                     SubmitField)
+from wtforms.validators import (DataRequired, Email, EqualTo, Length,
+                                ValidationError)
 
 load_dotenv(find_dotenv())
 
@@ -31,6 +27,9 @@ account_sid = os.getenv("SID")
 auth_token = os.getenv("TOKEN")
 key = os.getenv("OKEY")
 secret = os.getenv("OSECRET")
+phoneNumber = os.getenv("PHONE")  # saved phone number for Twilio
+
+# petfinder API
 pf = Petfinder(key=key, secret=secret)
 client = Client(account_sid, auth_token)
 
@@ -63,17 +62,6 @@ class Users(db.Model, UserMixin):
     # create a string
     def __repr__(self):
         return "<Name %r>" % self.name
-
-
-# Free database model?
-
-
-# Premium database model?
-
-
-# Adoption database model #### WIP ####
-# class Adopt(db.model):
-#     id = db.Column(db.Integer, primary_key=True)
 
 
 # flask RegistrationForm
@@ -137,7 +125,7 @@ name = []
 link = []
 add1 = []
 
-# use twilio to send messages
+# finds local shelters near you
 def orgs(loc):
     org = pf.organizations(
         location=loc,
@@ -235,7 +223,6 @@ def logout():
     """
     Log user out and redirect to login page
     """
-
     logout_user()
     return redirect(url_for("login"))
 
@@ -405,7 +392,7 @@ def feedback():
             from_="+13185943649",
             messaging_service_sid=os.getenv("MID"),
             body="new feedback!\n" + str(fback),
-            to="+1" + "8627045775",
+            to="+1" + phoneNumber,
         )
         print(message.sid)
         flash("Thank you for the feedback!")
@@ -463,6 +450,11 @@ def searchAgain():
         add1.clear()
         return flask.render_template("/adopt.html")
     return redirect(url_for("landingPage"))
+
+
+@app.route("/userLogin", methods=["GET", "POST"])
+def userLogin():
+    return flask.render_template("userLogin.html")
 
 
 if __name__ == "__main__":

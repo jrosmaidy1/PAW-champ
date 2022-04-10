@@ -5,24 +5,23 @@
 
 <body>
 
-  <section class="container" id="section1">
-    <h2 class="section-items">
-      <img src="{{dimages}}" class="profiles">
-    </h2>
-    <h2 class="section-items">
+  <section class="members-container">
+    <img src="{{dimages}}" class="randomPic">
+    <h2>
       &#128054; - Dog Fact<br>
       {{dfact}}
     </h2>
     <div class="form-items">
-      <label class="form-label" for="phoneNumber">
-        Enter your phone number below <br>
-        to start receiving more facts:
-      </label><br>
-      <input name="phoneNumber" type="text" class="form-box" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
-      <div>
-        <input type="submit" value="Submit">
-      </div>
-      </form>
+        <form method="POST" action="/getDog">
+          <label class="phone-label" for="phoneNumber">
+            Enter your phone number below <br>
+            to start receiving more facts:
+          </label><br>
+          <input name="phoneNumber" type="text" class="phone-form" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
+          <div>
+            <input type="submit" value="Submit">
+          </div>
+        </form>
   </section>
 </body>
 

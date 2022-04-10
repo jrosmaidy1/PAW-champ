@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+
+<body class="userLogin">
+
+  <section class="login-container">
+    <form method="POST" action="" class="user-form">
+      <label class="form-label">
+          Sign Up
+      </label><br>
+      <label class="user-label">
+        Email Address
+      </label>
+      <input name="State" id="username" class="user-input" type="email" placeholder="Type your email here" required="required">
+      <br>
+
+      <label class="user-label">
+        Password
+      </label>
+      <input name="State" id="password" class="user-input" type="password" placeholder="Type your password here" required="required">
+      <br>
+      <input type="submit" value="Create Account"></input>
+    </form>
+  </section>
+</body>
+
+{%endblock content%}
