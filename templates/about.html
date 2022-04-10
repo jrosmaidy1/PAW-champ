@@ -7,80 +7,71 @@
   <title> what a cat-astrophe! </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Karla:wght@300&family=Londrina+Solid:wght@300&family=Playfair+Display:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dokdo&family=East+Sea+Dokdo&family=Karla:wght@300&family=Playfair+Display:wght@400;600&family=Quicksand:wght@600&display=swap');
   </style>
   <link href="../static/style.css" rel="stylesheet" type="text/css" />
 </head>
 
 <body>
   <!-- navbar in every page -->
-  <header>
     <nav class="navbar bg-light">
-      <a class="navbar-brand" href="/{{url_for('landingPage')}}">CAT-ASTROPHE</a>
-
+      <a class="navbar-brand" href="{{url_for('landingPage')}}">CAT-ASTROPHE</a>
       <div>
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/{{url_for('landingPage')}}">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="{{url_for('landingPage')}}">Home</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="/{{url_for('about')}}">About</a>
+            <a class="nav-link" href="{{url_for('about')}}">About</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('feedback')}}">Feedback</a>
+        </li>
         </ul>
       </div>
     </nav>
-  </header>
 
   <div class="members-container">
-    <h2>
+    <p class="members-item">
       This page was inspired by our love for cats. <br>
-      Our page was constructed with Html/Css on the front-end <br>
+      Our page was constructed with HTML/CSS on the front-end <br>
       and Python for the back-end. <br>
       We also integrated multiple APIs <br>
       – Twilio's automated messenger API and cat-fact API. <br>
+    </p>
 
-    </h2>
- </div>
+    <p class="members-item"><u> Meet the Creators!</u></h2>
 
- <div class="members-container">
-  <ul class="members-list">
-    <li class="members-item">
-      <img src="../static/jjr1.jpg" style="float: left;" />
-      <h2>Jason Rosmaidy</h2>
-    </li>
-    <li class="members-item">
-      <a class="members-link" href="https://github.com/jrosmaidy1"> github.com/jrosmaidy1 </a>
-    </li>
+    <div class="members-container2">
+      <div class="members-container">
+          <img src="../static/jjr1.jpg" class="profiles">
+          <p class="members-item">
+            Jason Rosmaidy<br>
+           <a class="members-link" href="https://github.com/jrosmaidy1" target=blank> <img src="../static/github-logo.svg" class="socials"></a>
+          </p>
+    
+          <img src="../static/zi.jpg" class="profiles">
+          <p class="members-item">
+            Zi Yon<br>
+            <a class="members-link" href="https://github.com/kayyon" target=blank> <img src="../static/github-logo.svg" class="socials"></a>
+          </p>
+      </div>
+      <div class="members-container">
+        <img src="../static/chloe.jpg" class="profiles">
+           <p class="members-item">
+            Chloe Ng<br>
+            <a class="members-link" href="https://github.com/chlo-ng" target=blank> <img src="../static/github-logo.svg" class="socials"></a>
+            <a class="members-link" href="https://www.linkedin.com/in/chloe-ng-27690822b/" target=blank> <img src="../static/linked-in.png" class="socials"></a>
+           </p>
 
-    <li class="members-item">
-      <img src="../static/zi.jpg" style="float: left;">
-      <h2>Zi Yon</h2>
-      <br>
-    </li>
-    <li class="members-item">
-      <a class="members-link" href="https://github.com/kayyon"> github.com/kayyon </a>
-    </li>
-  </ul>
-  <ul class="members-list">
-    <li class="members-item">
-      <img src="../static/ran.jpg" style="float: left;">
-      <h2>Randy Kosasih</h2>
-    </li>
-    <li class="members-item">
-      <a class="members-link" href="https://github.com/rkosasih1"> github.com/rkosasih1 </a>
-    </li>
-
-    <li class="members-item">
-      <img src="../static/chloe.jpg" style="float: left; ">
-      <h2>Chloe Ng</h2>
-    </li>
-    <li class="members-item">
-      <a class="members-link" href="https://github.com/chlo-ng"> github.com/chlo-ng </a>
-    </li>
-  </ul>
- </div>
+        <img src="../static/ran.jpg" class="profiles">
+        <p class="members-item">
+          Randy Kosasih<br>
+          <a class="members-link" href="https://github.com/rkosasih1" target=blank> <img src="../static/github-logo.svg" class="socials"></a>
+        </p>
+      </div>
+    </div>
 
   <!-- <footer class="footer"> 
     <h2 class="footer-items"> hellaur </h3> 

@@ -10,7 +10,7 @@ body {
 }
 
 h1 {
-    font-family: 'Londrina Solid';
+    font-family: 'Quicksand';
     font-style: normal;
     font-size: 3vw;
     text-align: center;
@@ -21,8 +21,18 @@ h1 {
 }
 
 h2 {
-    font-family: 'Londrina Solid';
+    font-family: 'Karla';
     font-size: 2.5vw;
+    font-weight: 400;
+    text-align: center;
+
+    color: #000000;
+    text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
+}
+
+h3 {
+    font-family: 'Karla';
+    font-size: 1.5vw;
     font-weight: 400;
     text-align: center;
 
@@ -82,66 +92,83 @@ h2 {
 }
 
 .active {
+    text-decoration: underline;
+}
+
+.nav-link:hover, .navbar-brand:hover {
     color: #EC967D;
 }
 
 /* landingPage styling */
-section {
-    padding: 0;
-    margin: 0;
-    height: 200vh;
-    text-align: center;
-}
-
 .container {
+    text-align: center;
+    height: 75vh;
     display: flex;
+    position: relative;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+
+    animation: factTransition .75s;
 }
 
 .section-items {
-    font-family: 'Londrina Solid';
+    font-family: 'Quicksand';
     font-style: normal;
     font-weight: 400;
-    font-size: 3vw;
+    font-size: 2.5vw;
     color: #000000;
     text-shadow: 0px 4px 8px rgba(91, 67, 49, 0.4);
 }
 
-.next-button {
+.fact-button {
     text-decoration: none;
     color: inherit;
     font-size: 1.5vw;
 
-    align-self: center;
-    background: rgba(241, 225, 166, 0.8);
-    border-radius: 30px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);  
+    min-height: 3vw;
+    align-self: center; 
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.category {
+    padding-left: .5em;
+    border-radius: 50%;
+    width: 15vw;
+    filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
 }
 
 /* about page styling */
 .members-container {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    animation: factTransition 0.75s;
 }
 
-.members-list {
-    display: block;
-    list-style: none;
+.members-container2 {
+    display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 0;
+    justify-content: center;
+    animation: factTransition 0.75s;
 }
 
 .members-item {
-    font-size: 1.5vw;
+    font-family: 'Quicksand';
+    font-size: 1.7vw;
     font-weight: 300;
     text-align: center;
+    align-self: center;
+    margin-bottom: .5em;
 
     color: #000000;
-
     text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
-    align-items: center;
 }
 
 .members-link {
@@ -150,34 +177,55 @@ section {
     text-align: center;
 }
 
+.profiles {
+    border-radius: 50%;
+    width: 10.5vw;
+    filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
+}
+
+.socials {
+    height: 5vh;
+    filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
+}
+
+.github-logo:hover {
+    
+}
+
 /* signup page styling */
 .form-items {
-    font-family: 'Londrina Solid';
+    font-family: 'Quicksand';
     font-size: 2vw;
     font-weight: 400;
     text-align: center;
+    height: 75vh;
 
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    justify-content: center;
     padding: 0.2em;
+
+    animation: factTransition .75s;
 }
 
 .form-box {
-    text-align: center;
     margin: 1em;
+    text-align: center;
     background: #F3E4B2;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 56px;
-    width: 30vw;
-    height: 4vw;
+    border-radius: 15px;
+    padding: .5em;
+
+    font-size: 1.55vw;
+    min-width: 45vw;
+    min-height: 20vh;
+    max-height: max-content;
 }
 
 .form-label {
-    font-family: 'Londrina Solid';
+    text-align: center;
+    font-family: 'Quicksand';
     color: #000000;
     text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
 }
@@ -201,4 +249,25 @@ input[type=submit] {
 
 .footer-items {
     text-align: center;
+}
+
+/* transition styling */
+@keyframes factTransition {
+    from {
+        opacity: 0;
+        transform: rotateX(-10deg);
+    }
+    to {
+        opacity: 1;
+        transform: rotateX(0);
+    }
+}
+
+@keyframes imageTransition {
+    from {
+
+    }
+    to {
+
+    }
 }
