@@ -7,16 +7,13 @@ import petpy
 import requests
 from dotenv import find_dotenv, load_dotenv
 from flask import flash, redirect, request, url_for
-from flask_login import (LoginManager, UserMixin, current_user, login_user,
-                         logout_user)
+from flask_login import LoginManager, UserMixin, current_user, login_user, logout_user
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from petpy import Petfinder
 from twilio.rest import Client
-from wtforms import (BooleanField, DecimalField, PasswordField, StringField,
-                     SubmitField)
-from wtforms.validators import (DataRequired, Email, EqualTo, Length,
-                                ValidationError)
+from wtforms import BooleanField, DecimalField, PasswordField, StringField, SubmitField
+from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 
 load_dotenv(find_dotenv())
 
@@ -392,11 +389,7 @@ def feedback():
             from_="+13185943649",
             messaging_service_sid=os.getenv("MID"),
             body="new feedback!\n" + str(fback),
-<<<<<<< HEAD
-            to="+1" + "XXXXXXXXXX",
-=======
             to="+1" + phoneNumber,
->>>>>>> login
         )
         print(message.sid)
         flash("Thank you for the feedback!")
