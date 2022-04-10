@@ -112,6 +112,10 @@ def about():
 
 @app.route("/cat", methods=["GET", "POST"])
 def cat():
+    catRes = requests.get(catUrl, headers=catHeaders, data=catData)
+    cfactRes = requests.get(cfactUrl, headers=cfactHeaders, data=cfactData)
+    catR = catRes.json()
+    cfactR = cfactRes.json()
     cimages = catR[0]["url"]
     cfact = cfactR["fact"]
     return flask.render_template("/cat.html", cfact=cfact, cimages=cimages)
@@ -122,6 +126,10 @@ def getCat():
     if request.method == "POST":
         phoneNumber = request.form.get("phoneNumber")
         replacement(phoneNumber)
+        catRes = requests.get(catUrl, headers=catHeaders, data=catData)
+        cfactRes = requests.get(cfactUrl, headers=cfactHeaders, data=cfactData)
+        catR = catRes.json()
+        cfactR = cfactRes.json()
         cimages = catR[0]["url"]
         cfact = cfactR["fact"]
         image = cimages
@@ -139,6 +147,10 @@ def getCat():
 
 @app.route("/dog", methods=["GET", "POST"])
 def dog():
+    dogRes = requests.get(dogUrl, headers=dogHeaders, data=dogData)
+    dfactRes = requests.get(factUrl, headers=dfactHeaders, data=dfactData)
+    dogR = dogRes.json()
+    dfactR = dfactRes.json()
     dimages = dogR["message"]
     dfact = dfactR["facts"][0]
     return flask.render_template("/dog.html", dfact=dfact, dimages=dimages)
@@ -149,6 +161,10 @@ def getDog():
     if request.method == "POST":
         phoneNumber = request.form.get("phoneNumber")
         replacement(phoneNumber)
+        dogRes = requests.get(dogUrl, headers=dogHeaders, data=dogData)
+        dfactRes = requests.get(factUrl, headers=dfactHeaders, data=dfactData)
+        dogR = dogRes.json()
+        dfactR = dfactRes.json()
         dimages = dogR["message"]
         dfact = dfactR["facts"][0]
         image = dimages
@@ -166,6 +182,14 @@ def getDog():
 
 @app.route("/catdog", methods=["GET", "POST"])
 def catdog():
+    catRes = requests.get(catUrl, headers=catHeaders, data=catData)
+    cfactRes = requests.get(cfactUrl, headers=cfactHeaders, data=cfactData)
+    dogRes = requests.get(dogUrl, headers=dogHeaders, data=dogData)
+    dfactRes = requests.get(factUrl, headers=dfactHeaders, data=dfactData)
+    catR = catRes.json()
+    cfactR = cfactRes.json()
+    dogR = dogRes.json()
+    dfactR = dfactRes.json()
     cimages = catR[0]["url"]
     cfact = cfactR["fact"]
     dimages = dogR["message"]
@@ -180,6 +204,14 @@ def getcatdog():
     if request.method == "POST":
         phoneNumber = request.form.get("phoneNumber")
         replacement(phoneNumber)
+        catRes = requests.get(catUrl, headers=catHeaders, data=catData)
+        cfactRes = requests.get(cfactUrl, headers=cfactHeaders, data=cfactData)
+        dogRes = requests.get(dogUrl, headers=dogHeaders, data=dogData)
+        dfactRes = requests.get(factUrl, headers=dfactHeaders, data=dfactData)
+        catR = catRes.json()
+        cfactR = cfactRes.json()
+        dogR = dogRes.json()
+        dfactR = dfactRes.json()
         cimages = catR[0]["url"]
         cfact = cfactR["fact"]
         dimages = dogR["message"]
@@ -238,4 +270,5 @@ def results():
     return flask.render_template("results.html")
 
 
-app.run(host="127.0.0.1", port=8081, debug=True)
+if __name__ == "__main__":
+    app.run(host="127.0.0.1", port=8081, debug=True)
