@@ -5,11 +5,10 @@
 
 <body>
     <div class="search-container">
-        <form method="POST" action="{{url_for('results')}}">
+        <form method="POST" action="{{url_for('adopt')}}">
             <div>
-              <input type="search" id="searchbar" name="q"
-               placeholder="Search here...">
-              <input type="submit" value="Search" class="" ></input>
+                <input name="State" id="searchbar" type="text" class="form-box"><br>
+                <input type="submit" value="Search" class=""></input>
             </div>
         </form>
     </div>

@@ -5,37 +5,39 @@
 
 <body>
     <div class="search-container">
-    <table id="results-table">
-        <ul type="1" id=results-list>
-            <li class="org results-item">
-                <br>
-                [NAME] 
-                <br><a href="">[LINK]</a><br>
-                Address: 12345<br>
-                Atlanta, GA 30324
-                <br>
-                <br>
-            </li>
-        </ul>
+        <table id="table1" class="table">
+            <b>Search here:
+                <input id="searchbar" type="text" onkeyup="search_org()" placeholder="Search results">
+                </form>
+            </b><br>
+            <ul type="1" id=list>
+                {% for i in range(0,10) %}
+                <li class="org results-item">Organization name: <a href="{{olink[i]}}">{{oname[i]}}</a><br>
+                    Address: {{oadd1[i]}}<br>
+                    {{ocity[i]}}, {{ostate[i]}} {{opost[i]}}
+                    <br><br>
+                </li>
+                {%endfor%}
+            </ul>
 
-        <script>
-            function search_org() {
-                let input = document.getElementById('searchbar').value
-                input = input.toLowerCase();
-                let x = document.getElementsByClassName('org');
-    
-                for (i = 0; i < x.length; i++) {
-                    if (!x[i].innerHTML.toLowerCase().includes(input)) {
-                        x[i].style.display = "none";
-                    }
-                    else {
-                        x[i].style.display = "results-item";
+            <script>
+                function search_org() {
+                    let input = document.getElementById('searchbar').value
+                    input = input.toLowerCase();
+                    let x = document.getElementsByClassName('org results-item');
+
+                    for (i = 0; i < x.length; i++) {
+                        if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                            x[i].style.display = "none";
+                        }
+                        else {
+                            x[i].style.display = "list-item";
+                        }
                     }
                 }
-            }
-        </script>
-        
-    </table>
+            </script>
+
+        </table>
     </div>
 </body>
 

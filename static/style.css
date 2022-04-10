@@ -95,7 +95,9 @@ h3 {
     text-decoration: underline;
 }
 
-.nav-link:hover, .navbar-brand:hover {
+
+.nav-link:hover,
+.navbar-brand:hover {
     color: #EC967D;
 }
 
@@ -125,9 +127,8 @@ h3 {
     text-decoration: none;
     color: inherit;
     font-size: 1.5vw;
-
     min-height: 3vw;
-    align-self: center; 
+    align-self: center;
 }
 
 .categories {
@@ -188,9 +189,10 @@ h3 {
     filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
 }
 
-.github-logo:hover {
-    
+
+.github-logo:hover {  
 }
+
 
 /* form styling */
 .form-items {
@@ -264,7 +266,6 @@ input[type=submit] {
     align-items: center;
     justify-content: center;
     padding: 0.2em;
-
     animation: factTransition .75s;
 }
 
@@ -282,7 +283,7 @@ input[type=submit] {
     max-height: max-content;
 }
 
-#results-list {
+#list {
     list-style: none;
 }
 
@@ -327,9 +328,7 @@ input[type=submit] {
 
 @keyframes imageTransition {
     from {
-
     }
     to {
-
     }
 }
