@@ -7,13 +7,13 @@
 
   <section class="container" id="section1">
     <h2 class="section-items">
-      <img src="{{dimages}}" class="profiles">
+      <img src="{{cimages}}" class="profiles">
     </h2>
     <h2 class="section-items">
-      DOG FACT - {{dfact}} <br>
+      CAT FACT - {{cfact}} <br>
     </h2>
     <div class="form-items">
-      <form method="POST" action="/getDog">
+      <form method="POST" action="/getCat">
         <label class="form-label" for="phoneNumber">
           Enter your phone number below <br>
           to start receiving more facts:
@@ -28,6 +28,7 @@
   </div class="feedback">
   <a class="feedback-btn" href="{{url_for('feedback')}}"> <img src="../static/feedback.jpeg" class="feedback-icon"> </a>
   </div>
+
 </body>
 
 {%endblock content%}

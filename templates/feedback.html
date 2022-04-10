@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+
+<body>
+
+  <div class="form-items">
+    <form method="POST" action="/feedback">
+      <label class="form-label">
+        Got any feedback? <br>
+        We'd love to hear from you!
+      </label><br>
+      <textarea class="form-box" rows="4" cols="50" type="text" name="Suggestion" placeholder="Type feedback here..."
+        required="required"></textarea><br>
+      <input type="submit" value="Submit Review">
+    </form>
+  </div>
+
+</body>
+
+{%endblock content%}
