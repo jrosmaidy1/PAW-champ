@@ -5,39 +5,43 @@
 
 <body>
     <div class="search-container">
-        <table id="table1" class="table">
-            <b>Search here:
-                <input id="searchbar" type="text" onkeyup="search_org()" placeholder="Search results">
-                </form>
-            </b><br>
-            <ul type="1" id=list>
-                {% for i in range(0,10) %}
-                <li class="org results-item">Organization name: <a href="{{olink[i]}}">{{oname[i]}}</a><br>
-                    Address: {{oadd1[i]}}<br>
-                    {{ocity[i]}}, {{ostate[i]}} {{opost[i]}}
-                    <br><br>
-                </li>
-                {%endfor%}
-            </ul>
+        <form>
+            <label class="form-label">
+                Filter by:
+            </label>
+            <input id="searchbar" type="text" onkeyup="search_org()" placeholder="City/Org Name"><br>
+        </form>
+        <form method="POST" action="{{url_for('searchAgain')}}"><br>
+            <input type="submit" value="Change location" class="search-container"></input>
+        </form>
+        <ul type="1" id=list>
+            {% for i in range(len) %}
+            <li class="org results-item">
+                {{oname[i]}}<br>
+                <a href="{{olink[i]}}">Organization Website</a><br>
+                Mailing address: {{oadd1[i]}}<br>
+                {{ocity[i]}}, {{ostate[i]}} {{opost[i]}}
+                <br><br>
+            </li>
+            {%endfor%}
+        </ul>
 
-            <script>
-                function search_org() {
-                    let input = document.getElementById('searchbar').value
-                    input = input.toLowerCase();
-                    let x = document.getElementsByClassName('org results-item');
+        <script>
+            function search_org() {
+                let input = document.getElementById('searchbar').value
+                input = input.toLowerCase();
+                let x = document.getElementsByClassName('org results-item');
 
-                    for (i = 0; i < x.length; i++) {
-                        if (!x[i].innerHTML.toLowerCase().includes(input)) {
-                            x[i].style.display = "none";
-                        }
-                        else {
-                            x[i].style.display = "list-item";
-                        }
+                for (i = 0; i < x.length; i++) {
+                    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+                        x[i].style.display = "none";
+                    }
+                    else {
+                        x[i].style.display = "list-item";
                     }
                 }
-            </script>
-
-        </table>
+            }
+        </script>
     </div>
 </body>
 
