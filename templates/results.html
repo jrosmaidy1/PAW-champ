@@ -10,9 +10,10 @@
                 Filter by:
             </label>
             <input id="searchbar" type="text" onkeyup="search_org()" placeholder="City/Org Name"><br>
-            <form method="POST" action="{{url_for('searchAgain')}}"><br>
-                <input type="submit" value="Change location" class=""></input>
-            </form>
+        </form>
+        <form method="POST" action="{{url_for('searchAgain')}}"><br>
+            <input type="submit" value="Change location" class="search-container"></input>
+        </form>
         <ul type="1" id=list>
             {% for i in range(len) %}
             <li class="org results-item">
