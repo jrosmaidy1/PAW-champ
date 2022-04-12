@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js%22%3E"></script>
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body class="userLogin">
+    <section class="login-container">
+        <form method="POST" action="" class="user-form">
+            {{ form.hidden_tag() }}
+            <label class="form-label">
+                Login
+            </label><br>
+
+            <!--email login-->
+            <label class="user-label">
+                Email
+            </label>
+            {{ form.email(class="user-input")}}
+
+            <br>
+            <!--submit-->
+            {{ form.submit }}
+
+            <a class="user-label" href="{{url_for('registration')}}">
+                <u>Create an account</u>
+            </a>
+        </form>
+    </section>
+</body>
+
+
+{%endblock content%}

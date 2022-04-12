@@ -4,3 +4,8 @@ requests==2.22.0
 twilio==7.7.1
 gunicorn==19.3.0
 python-dotenv==0.19.1
+Flask-Login==0.6.0
+Flask-SQLAlchemy==2.5.1
+Flask-WTF==1.0.1
+Jinja2==3.0.2
+petpy==2.3.1

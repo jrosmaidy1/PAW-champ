@@ -7,22 +7,21 @@ body {
     background-image: url(../static/bg-nocat.png);
     background-attachment: fixed;
     background-size: cover;
+    position: relative;
 }
 
 h1 {
     font-family: 'Quicksand';
     font-style: normal;
     font-size: 3vw;
-    text-align: center;
-    align-self: center;
 
     color: #000000;
     text-shadow: -3vw 5vw 5vw rgba(91, 67, 49, 0.5);
 }
 
 h2 {
-    font-family: 'Karla';
-    font-size: 2.5vw;
+    font-family: 'Quicksand';
+    font-size: 2.05vw;
     font-weight: 400;
     text-align: center;
 
@@ -31,7 +30,7 @@ h2 {
 }
 
 h3 {
-    font-family: 'Karla';
+    font-family: 'Quicksand';
     font-size: 1.5vw;
     font-weight: 400;
     text-align: center;
@@ -52,6 +51,7 @@ h3 {
     padding-right: 0.5em;
     position: sticky;
     top: 0;
+    width: 100vw;
 }
 
 .navbar-brand {
@@ -59,7 +59,8 @@ h3 {
     text-decoration: none;
     font-style: normal;
     font-weight: 400;
-    font-size: 7vw;
+    width: 20vw;
+    height: 20vh;
     text-align: center;
 
     color: #FFFBF2;
@@ -91,13 +92,43 @@ h3 {
     padding-right: 2em;
 }
 
+.dropdown {
+    float: left;
+    overflow: hidden;
+}
+
+.dropdown .dropbtn {
+    font-family: inherit;
+    margin: 0;
+
+    border: none;
+    font-weight: 600;
+    background-color: #381F16;
+    color:#FFFBF2;
+    text-shadow: -1px 3px 4px rgba(235, 179, 82, 0.38);
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color:rgba(56, 31, 22, 0.54);
+    min-width: 100px;
+    font-size: 1.7vw;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
 .active {
     text-decoration: underline;
 }
 
-
 .nav-link:hover,
-.navbar-brand:hover {
+.navbar-brand:hover,
+.dropdown:hover .dropbtn {
     color: #EC967D;
 }
 
@@ -106,7 +137,6 @@ h3 {
     text-align: center;
     height: 75vh;
     display: flex;
-    position: relative;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -129,6 +159,9 @@ h3 {
     font-size: 1.5vw;
     min-height: 3vw;
     align-self: center;
+
+    background: rgba(241, 225, 166, 0.8);
+    border-radius: 20px;
 }
 
 .categories {
@@ -137,33 +170,45 @@ h3 {
     align-items: center;
 }
 
+
 .category {
-    padding-left: .5em;
     border-radius: 50%;
     width: 15vw;
     filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
+    padding: .5em;
+}
+
+.category:hover {
+    filter: drop-shadow(0px 0px 20px rgba(91, 67, 49, 1));
+}
+
+.welcome-message {
+    align-self: flex-start;
+    justify-content: flex-start;
+    height: 10vh;
+    padding:0;
+    padding-left: 1em;
 }
 
 /* about page styling */
 .members-container {
+    font-family: 'Quicksand';
+    font-size: 1.7vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     animation: factTransition 0.75s;
 }
 
 .members-container2 {
     display: flex;
     align-items: center;
-    justify-content: center;
-    animation: factTransition 0.75s;
+    justify-content: space-evenly;
 }
 
 .members-item {
-    font-family: 'Quicksand';
-    font-size: 1.7vw;
-    font-weight: 300;
     text-align: center;
     align-self: center;
     margin-bottom: .5em;
@@ -188,11 +233,6 @@ h3 {
     height: 5vh;
     filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
 }
-
-
-.github-logo:hover {  
-}
-
 
 /* form styling */
 .form-items {
@@ -226,12 +266,12 @@ h3 {
 }
 
 .form-label {
+    font-size: 1.8vw;
     text-align: center;
     font-family: 'Quicksand';
     color: #000000;
     text-shadow: -2px 3px 4px rgba(91, 67, 49, 0.4);
 }
-
 
 .feedback {
     position: relative;
@@ -241,6 +281,7 @@ h3 {
     position: fixed;
     right: .5em;
     top: 50vh;
+    background: -2px 3px 4px rgba(91, 67, 49, 0.4);
 }
 
 .feedback-icon {
@@ -249,6 +290,12 @@ h3 {
 }
 
 input[type=submit] {
+    background: rgba(241, 225, 166, 0.8);
+    border-radius: 20px;
+    font-size: 1.5vw;
+}
+
+input[type=button] {
     background: rgba(241, 225, 166, 0.8);
     border-radius: 20px;
     font-size: 1.5vw;
@@ -266,6 +313,7 @@ input[type=submit] {
     align-items: center;
     justify-content: center;
     padding: 0.2em;
+
     animation: factTransition .75s;
 }
 
@@ -279,7 +327,7 @@ input[type=submit] {
 
     font-size: 1.55vw;
     min-width: 8vw;
-    min-height: 6vh;
+    min-height: 3vh;
     max-height: max-content;
 }
 
@@ -291,12 +339,107 @@ input[type=submit] {
     text-align: left;
     padding-left: .5em;
     padding-right: .5em;
-
     width: 40vw;
+
     background: #F3E4B2;
     border: 3px solid rgba(56, 31, 22, 0.54);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+}
+
+/* fact page styling */
+.fact {
+    max-width: 45vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.randomPic {
+    padding-top: .5em;
+    padding-left: 1em;
+    max-width: 30vw;
+    max-height: 25vh;
+    filter: drop-shadow(0px 7px 8px rgba(0, 0, 0, 0.25));
+}
+
+.phone-form{
+    margin: 1em;
+    text-align: center;
+    background: #F3E4B2;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    padding: .5em;
+
+    font-size: 1.55vw;
+    min-width: 45vw;
+    min-height: 4vh;
+}
+
+.phone-label {
+    font-size: 2vw;
+}
+
+/* userLogin styling */
+.userLogin {
+    background-image: url(../static/bg-cat.png);
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+}
+
+.login-container {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 3em;
+    width: 83vw;
+    height: 55vh;
+
+    animation: factTransition .75s;
+}
+
+.user-form {
+    font-family: 'Quicksand';
+    font-size: 2vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2em;
+
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20%;
+}
+
+.user-label {
+    font-size: 1.5vw;
+    padding-bottom: .5em;
+    padding-top: .5em;
+    text-decoration: none;
+    color: #000000;
+}
+
+.user-input {
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid #381F16;
+    color: none;
+    font-size: 1.5vw;
+    width: 20vw;
+}
+
+.error-msg {
+    font-size: 1.5vw;
+    padding-bottom: .5em;
+    color: red;
+    padding-top: 0.5em;
 }
 
 /* footer styling */
@@ -326,9 +469,3 @@ input[type=submit] {
     }
 }
 
-@keyframes imageTransition {
-    from {
-    }
-    to {
-    }
-}

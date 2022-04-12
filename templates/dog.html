@@ -5,33 +5,28 @@
 
 <body>
 
-  <section class="container" id="section1">
-    <h2 class="section-items">
-      <img src="{{dimages}}" class="profiles">
-    </h2>
-    <h2 class="section-items">
-      &#128054; - Dog Fact<br>
-      {{dfact}}
-    </h2>
-    <div class="form-items">
-      <form method="POST" action="/dog">
-        <label class="form-label" for="phoneNumber"></label>
-        <input type="submit" value="More?"><br><br>
+  <section class="members-container">
+    <img src="{{dimages}}" class="randomPic">
+    
+    <section class="fact">
+      <h2>
+        &#128054; - Dog Fact<br>
+        {{dfact}}
+      </h2>
+    </section>
+
+    <div class="search-container">
         <form method="POST" action="/getDog">
-          <label class="form-label" for="phoneNumber">
+          <label class="phone-label" for="phoneNumber">
             Enter your phone number below <br>
             to start receiving more facts:
           </label><br>
-          <input name="phoneNumber" type="text" class="form-box" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
+          <input name="phoneNumber" type="text" class="phone-form" id="phoneNumber" placeholder="XXXXXXXXXX"><br>
           <div>
             <input type="submit" value="Submit">
           </div>
         </form>
   </section>
-
-  </div class="feedback">
-  <a class="feedback-btn" href="{{url_for('feedback')}}"> <img src="../static/feedback.jpeg" class="feedback-icon"> </a>
-  </div>
 </body>
 
 {%endblock content%}
